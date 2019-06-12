@@ -1,0 +1,37 @@
+
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  padding: 8px 24px;
+
+  &__left {
+    width: 30%;
+    img {
+      width: 48px;
+    }
+  }
+
+  &__center {
+    width: 40%;
+    text-align: center;
+  }
+
+  &__right {
+    width: 30%;
+
+    .el-menu-header {
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: none;
+      height: 56px;
+
+      .el-menu-item-custom {
+        height: 56px;
+      }
+    }
+  }
+}

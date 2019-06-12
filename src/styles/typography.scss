@@ -1,0 +1,111 @@
+@import '~@/styles/variables';
+
+b, strong, .strong {
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-bold;
+}
+
+p {
+  color: $warm-grey;
+  font-size: 15px;
+}
+
+.first-capital {
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.xlarge-title {
+  font-size: 40px;
+}
+
+.large-title {
+  font-size: 34px;
+}
+
+.medium-title {
+  font-size: 28px;
+}
+
+.small-title {
+  font-size: 22px;
+}
+
+.large-font {
+  font-size: 19px;
+}
+
+.regular-font {
+  font-size: 17px;
+}
+
+.base-font {
+  font-size: 16px;
+}
+
+.subhead {
+  font-size: 15px;
+}
+
+.small-font {
+  font-size: 13px;
+}
+
+.micro-font {
+  font-size: 10px;
+}
+
+
+// color
+.color-black {
+  color: $black;
+}
+
+.color-pink {
+  color: $reddish-pink;
+}
+
+.color-grey {
+  color: $warm-grey;
+}
+
+.color-teal {
+  color: $teal-blue;
+}
+
+.color-green {
+  color: $green;
+}
+
+.color-orange {
+  color: $sunrise;
+}
+
+.color-red {
+  color: $orange-red;
+}
+
+.color-white {
+  color: $white;
+}
+
+.color-sunrise {
+  color: $sunrise;
+}
+
+.color-skyblue {
+  color: $sky-blue;
+}
+
+.color-lightgreen {
+  color: $lightish-green;
+}
+
+.subheader-text {
+  font-weight: $font-weight-light;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+}

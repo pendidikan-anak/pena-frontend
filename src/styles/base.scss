@@ -1,0 +1,131 @@
+@import "variables";
+@import "mixins";
+@import "slick";
+
+html {
+  overflow-y: scroll;
+}
+
+html, body, #app {
+  // height: 100%;
+  min-height: 100% !important;
+  position: relative;
+  overflow-x: hidden;
+}
+
+html, #app {
+  height: 100%;
+}
+
+
+*, html, body {
+  font-family: $font-text;
+  font-size: $font-size-regular;
+  font-weight: normal;
+  letter-spacing: $letter-spacing;
+  line-height: calc(1em + 4px);
+  color: $black;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  min-height: 0;
+  min-width: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-stroke: 0.4px;
+	-webkit-text-stroke: 0.4px rgba(0, 0, 0, 0.01);
+	text-shadow: #fff 0px 0.1px 0.1px;
+}
+
+*::before, *::after{
+  box-sizing: border-box;
+}
+
+
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-text;
+  color: $black;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: $font-weight-bold;
+  letter-spacing: $letter-spacing-bold;
+}
+
+b {
+  font-weight: $font-weight-bold;
+}
+
+i {
+  line-height: unset;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+
+  &.img-circle {
+    border-radius: 50%;
+  }
+
+  &.img-rounded {
+    border-radius: 8px;
+  }
+}
+
+input {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  border: none;
+
+  &:focus{
+    outline: none !important;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+

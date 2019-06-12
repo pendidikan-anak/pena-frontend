@@ -1,0 +1,23 @@
+
+
+.card {
+  display: flex;
+
+  .card-wrapper {
+    position: relative;
+    border: none;
+    width: 100%;
+
+    .image {
+      border-radius: 8px;
+    }
+
+    .caption{
+      position: absolute;
+      text-align: center;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+    }
+  }
+}
