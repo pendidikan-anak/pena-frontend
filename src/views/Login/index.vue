@@ -14,10 +14,11 @@
       </div>
       <div class="login__form__footer">
         <div class="login__form__footer__left">
-          <primary-large-button text="Masuk"/>
+          <primary-large-button text="Masuk" @submit="submit" />
         </div>
         <div class="login__form__footer__right">
-          Belum punya Akun?
+          <a href="#" class="base-font">Belum punya Akun?</a>
+          <a href="#">Lupa Password?</a>
         </div>
       </div>
     </div>
@@ -79,7 +80,13 @@ export default {
 
   },
   methods: {
-
+    submit: function(event) {
+      // submit email and password
+      // `event` is the native DOM event
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
   }
 }
 </script>

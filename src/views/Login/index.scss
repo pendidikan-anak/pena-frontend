@@ -65,8 +65,21 @@
         align-items: left;
         width: 50%;
       }
+
       &__right {
         width: 50%;
+
+        a {
+          height: 20px;
+          font-family: SourceSansPro;
+          font-size: 16px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #9b9b9b;
+        }
       }
     }
   }

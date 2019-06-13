@@ -1,5 +1,5 @@
 <template>
-<button class="button">
+<button v-on:click="submit" class="button">
   {{text}}
 </button>
 </template>
@@ -53,7 +53,9 @@ export default {
 
   },
   methods: {
-
+    submit() {
+      this.$emit('submit');
+    }
   }
 }
 </script>

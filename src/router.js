@@ -4,11 +4,15 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'home',
-      component: () => import(/* webpackChunkName: "about" */ './views/Login')
+      component: () => import( /* webpackChunkName: "about" */ './views/Home')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import( /* webpackChunkName: "about" */ './views/Login')
     }
   ]
 })
