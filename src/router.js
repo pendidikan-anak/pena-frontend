@@ -9,6 +9,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: () => import(/* webpackChunkName: "about" */ './views/Home')
+    },
+    {
+      path: '/become-a-partner',
+      name: 'becomeAPartner',
+      component: () => import(/* webpackChunkName: "about" */ './views/Vendor/Register')
     }
   ]
 })

@@ -1,0 +1,72 @@
+.register {
+  &__intro {
+    margin: 5% 25%;
+
+    &__form {
+      margin-top: 38.5px;
+
+      &__input {
+        width: 50%;
+        margin-bottom: 24px;
+        margin-right: 32px;
+
+        &__kode_pos {
+          width: 15%;
+        }
+      }
+
+      &__right {
+        color: #1289a7;
+      }
+    }
+
+    &__right {
+      float: right;
+    }
+
+    &__description {
+      margin-top: 24px;
+    }
+
+    &__search {
+      width: 70%;
+      z-index: 1;
+
+      &__title {
+        margin-bottom: 8px;
+      }
+
+      &__description {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  &__featured {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    padding: 0 5%;
+  }
+
+  &__sponsored {
+    margin: 0 5%;
+    height: 400px;
+    background-image: url("/img/bg2.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    &__caption {
+      position: absolute;
+      bottom: 100px;
+      left: 40px;
+      right: 40px;
+
+      .description,
+      .title {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

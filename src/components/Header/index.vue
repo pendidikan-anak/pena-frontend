@@ -9,7 +9,9 @@
     <div class="header__right">
       <el-menu class="el-menu-header" mode="horizontal" @select="handleSelect">
         <el-menu-item class="el-menu-item-custom" index="1">
-          Become a partner
+          <a href="#/become-a-partner">
+            Become a partner
+          </a>
         </el-menu-item>
         <el-menu-item class="el-menu-item-custom" index="2">Login</el-menu-item>
         <el-menu-item class="el-menu-item-custom" index="3">Register</el-menu-item>
