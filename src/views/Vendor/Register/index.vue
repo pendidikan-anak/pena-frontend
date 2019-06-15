@@ -1,7 +1,7 @@
 <template>
 <div class="register">
   <div class="register__intro">
-    <el-steps :active="active" finish-status="success">
+    <el-steps :active="active" finish-status="success" align-center>
       <el-step title="Informasi Kontak"></el-step>
       <el-step title="Alamat Sekolah"></el-step>
       <el-step title="Informasi Detil"></el-step>
@@ -13,11 +13,12 @@
       <div v-if="active === 1">
         <el-input class="register__intro__form__input" placeholder="Nomor Pokok Sekolah Nasional" v-model="npsn"></el-input>
         <a class="register__intro__form__right small-font" @click="cekNpsn">Cek NPSN</a>
-        <el-input class="register__intro__form__input" placeholder="Alamat" v-model="alamat"></el-input>
-        <a class="register__intro__form__right small-font" @click="openMap">Buka Peta</a>
+        <div>
+          <el-input class="register__intro__form__input" type="textarea" :rows="4" placeholder="Alamat" v-model="alamat"></el-input>
+          <a class="register__intro__form__right small-font" style="position: absolute;" @click="openMap">Buka Peta</a>
+        </div>
         <el-select v-model="provinsi" class="register__intro__form__input" placeholder="Provinsi">
-          <el-option label="Provinsi satu" value="shanghai"></el-option>
-          <el-option label="Provinsi dua" value="beijing"></el-option>
+          <el-option label="Provinsi satu" value="shanghai"></el-option>?
         </el-select>
         <el-select v-model="kota" class="register__intro__form__input" placeholder="Kota">
           <el-option label="Kota satu" value="shanghai"></el-option>
@@ -53,12 +54,10 @@
 </template>
 
 <script>
-import Card from '@/components/Card'
 
 export default {
   name: 'pena-home',
   components: {
-    'pena-card': Card
   },
   props: {
 
