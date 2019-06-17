@@ -1,0 +1,59 @@
+@import '~@/styles/variables';
+
+.login {
+  &__intro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: fixed;
+  }
+
+  &__form {
+    width: 400px;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    &__google {
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 16px;
+      background-color: $reddish-pink;
+      border-color: $reddish-pink;
+    }
+
+    &__email {
+      margin-top: 18px;
+    }
+
+    &__password {
+      margin-top: 32px;
+    }
+
+    &__footer {
+      margin-top: 24px;
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+
+      &__right {
+        text-align: right;
+
+        a {
+          height: 20px;
+          font-size: 16px;
+          font-weight: 600;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #9b9b9b;
+        }
+      }
+    }
+  }
+}

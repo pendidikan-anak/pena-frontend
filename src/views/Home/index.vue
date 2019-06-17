@@ -1,12 +1,11 @@
 <template>
   <div class="home">
     <div class="home__intro">
-      <div class="home__intro__overlay"></div>
       <div class="home__intro__search">
         <div class="home__intro__search__title">
-          <h2 class="xlarge-title color-white">Selamat Datang di Sahabat Pena</h2>
+          <h2 class="xlarge-title color-black">Selamat Datang di Sahabat Pena</h2>
           <h6
-            class="subhead color-white"
+            class="subhead color-black"
           >Platform pertama yang mempertemukan orang tua dengan sekolah di Indonesia.</h6>
         </div>
         <div class="home__intro__search__input">
@@ -15,6 +14,20 @@
           </el-input>
         </div>
       </div>
+    </div>
+
+    <div class="home__carousel">
+      <el-carousel>
+        <el-carousel-item>
+          <img src="/img/bg.jpg" alt="">
+        </el-carousel-item>
+        <el-carousel-item>
+          <img src="/img/bg1.jpg" alt="">
+        </el-carousel-item>
+        <el-carousel-item>
+          <img src="/img/bg2.jpg" alt="">
+        </el-carousel-item>
+      </el-carousel>
     </div>
 
     <div class="home__featured">
