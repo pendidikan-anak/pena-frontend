@@ -7,7 +7,7 @@
         <li>Tentang Kami</li>
         <li>FAQs</li>
         <li>Bantuan</li>
-        <li>Kontak </li>
+        <li>Kontak</li>
       </ul>
     </div>
     <div class="footer__center">
@@ -21,7 +21,9 @@
     </div>
     <div class="footer__right">
       <h1 class="medium-title title-office">Head Office</h1>
-      <p class="subhead address-office">Ruko Crown, Jl. Green Lake City Boulevard No.06, Petir, Cipondoh, Kota Tangerang, Banten 15147</p>
+      <p
+        class="subhead address-office"
+      >Ruko Crown, Jl. Green Lake City Boulevard No.06, Petir, Cipondoh, Kota Tangerang, Banten 15147</p>
       <h1 class="medium-title follow">Follow Us</h1>
       <div class="social-media">
         <div class="fb">f</div>
@@ -33,62 +35,29 @@
 </template>
 
 <script>
-
 export default {
-  name: 'pena-footer',
-  components: {
-
-  },
-  props: {
-
-  },
+  name: "pena-footer",
+  components: {},
+  props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  beforeCreate() {
-
-  },
-  created() {
-
-  },
-  beforeMount() {
-
-  },
-  mounted() {
-
-  },
-  beforeUpdate() {
-
-  },
-  updated() {
-
-  },
-  activated() {
-
-  },
-  deactivated() {
-
-  },
-  beforeDestroy() {
-
-  },
-  destroyed() {
-
-  },
-  methods: {
-
-  }
-}
+  computed: {},
+  watch: {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  activated() {},
+  deactivated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  methods: {}
+};
 </script>
 
 <style lang='scss' scoped>
-@import './index.scss';
+@import "./index.scss";
 </style>

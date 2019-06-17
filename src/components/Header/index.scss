@@ -1,5 +1,4 @@
-
-
+@import '~@/styles/variables';
 
 .header {
   display: flex;
@@ -7,9 +6,11 @@
   align-items: center;
   height: 56px;
   padding: 8px 24px;
+  background-color: $dark-mint;
 
   &__left {
     width: 30%;
+
     img {
       width: 48px;
     }
@@ -28,9 +29,11 @@
       justify-content: flex-end;
       border-bottom: none;
       height: 56px;
+      background-color: $dark-mint;
 
       .el-menu-item-custom {
         height: 56px;
+        color: $white;
       }
     }
   }
