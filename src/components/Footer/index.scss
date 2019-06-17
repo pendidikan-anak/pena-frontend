@@ -1,0 +1,63 @@
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
+
+.footer {
+  width: 100%;
+  background-color: $white;
+  min-height: 310px;
+  box-shadow: 0 -2px 6px 0 rgba(190, 190, 190, 0.5);
+  display: flex;
+  justify-content: space-between;
+  padding: 56px 72px;
+  margin-top: 48px;
+
+  &__left {
+    width: 15%;
+  }
+
+  &__center {
+    text-align: left;
+    width: 55%;
+  }
+
+  &__right {
+    width: 30%;
+    text-align: right;
+
+    .title-office {
+      margin-bottom: 16px
+    }
+
+    .address-office {
+      margin-bottom: 32px
+    }
+
+    .follow {
+      margin-bottom: 24px;
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: flex-end;
+
+      div {
+        padding-right: 24px;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+
+  ul {
+    li {
+      padding: 8px 0;
+
+      &.header {
+        margin-bottom: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+}
