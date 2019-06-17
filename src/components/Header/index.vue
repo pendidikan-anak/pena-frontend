@@ -9,10 +9,13 @@
     <div class="header__right">
       <el-menu class="el-menu-header" mode="horizontal" @select="handleSelect">
         <el-menu-item class="el-menu-item-custom" index="1">
-          Become a partner
+          Sekolah
         </el-menu-item>
-        <el-menu-item class="el-menu-item-custom" index="2">Login</el-menu-item>
-        <el-menu-item class="el-menu-item-custom" index="3">Register</el-menu-item>
+        <el-menu-item class="el-menu-item-custom" index="2">
+          Bimbel
+        </el-menu-item>
+        <el-menu-item class="el-menu-item-custom" index="3">Masuk</el-menu-item>
+        <el-menu-item class="el-menu-item-custom" index="4">Daftar</el-menu-item>
       </el-menu>
     </div>
   </header>
