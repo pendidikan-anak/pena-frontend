@@ -8,7 +8,7 @@
     </div>
     <div class="header__right">
       <el-menu class="el-menu-header" mode="horizontal" @select="handleSelect">
-        <a href=""><el-menu-item class="el-menu-item-custom" index="1">Sekolah</el-menu-item></a>
+        <a href="#/list-of-vendor"><el-menu-item class="el-menu-item-custom" index="1">Sekolah</el-menu-item></a>
         <a href=""><el-menu-item class="el-menu-item-custom" index="2">Bimbel</el-menu-item></a>
         <a href="#/login"><el-menu-item class="el-menu-item-custom" index="3">Masuk</el-menu-item></a>
         <a href="#/become-a-partner"><el-menu-item class="el-menu-item-custom" index="4">Daftar</el-menu-item></a>
