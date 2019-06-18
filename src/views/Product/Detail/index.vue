@@ -16,7 +16,7 @@
           >Jl. Batusari Raya No.12, RT.1/RW.9, Kb. Jeruk, Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530</p>
         </div>
         <div class="detail-vendor__button">
-          <el-button>Registrasi</el-button>
+          <el-button><span>Registrasi</span></el-button>
           <el-button id="wishlist">
             <span>+ Tambah Wishlist</span>
           </el-button>
