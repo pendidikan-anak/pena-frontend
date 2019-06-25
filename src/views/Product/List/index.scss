@@ -1,0 +1,73 @@
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 50px 0;
+
+    &__search {
+        width: 70%;
+
+        &__input {
+            margin-bottom: 39px;
+        }
+
+        &__options {
+            margin-bottom: 31px;
+            display: flex;
+
+            .sort {
+                margin-right: 40px;
+            }
+        }
+
+        &__vendor {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+
+            .el-card {
+                width: 100%;
+                border: none;
+            }
+
+            a {
+                width: 49%;
+            }
+
+            .image {
+                height: 320px;
+            }
+
+            .title {
+                margin-top: 12px;
+                margin-bottom: 16px;
+
+                h1 {
+                    font-family: SourceSansPro;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1;
+                    letter-spacing: normal;
+                    color: #000000;
+                }
+            }
+
+            .description {
+                display: flex;
+
+                i {
+                    margin-right: 8px;
+                }
+
+                p {
+                    width: 70%;
+                    text-align: left;
+                }
+            }
+        }
+
+    }
+}

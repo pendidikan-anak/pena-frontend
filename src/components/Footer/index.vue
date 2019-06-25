@@ -24,9 +24,15 @@
       <h6 class="subhead address-office">Ruko Crown, Jl. Green Lake City Boulevard No.06, Petir, Cipondoh, Kota Tangerang, Banten 15147</h6>
       <h1 class="medium-title follow">Follow Us</h1>
       <div class="social-media">
-        <div class="fb">f</div>
-        <div class="ig">i</div>
-        <div class="twitter">t</div>
+        <div class="fb">
+          <img src="@/assets/icons/facebook-ic.png" alt>
+        </div>
+        <div class="ig">
+          <img src="@/assets/icons/instagram-ic.png" alt>
+        </div>
+        <div class="twitter">
+          <img src="@/assets/icons/twitter-ic.png" alt>
+        </div>
       </div>
     </div>
   </footer>

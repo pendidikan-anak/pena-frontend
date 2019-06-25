@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div class="home__intro">
-      <div class="home__intro__overlay"></div>
       <div class="home__intro__search">
         <div class="home__intro__search__title">
           <h2 class="xlarge-title color-black title">Selamat Datang di Sahabat Pena</h2>

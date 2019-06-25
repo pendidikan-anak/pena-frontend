@@ -1,9 +1,9 @@
-.button {
+@import '~@/styles/variables';
+
+.el-button {
   width: 125px;
-  height: 40px;
   border-radius: 8px;
-  background-color: #2ED573;
-  font-family: SourceSansPro;
+  background-color: $dark-mint;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -11,5 +11,5 @@
   line-height: 1;
   letter-spacing: normal;
   text-align: center;
-  color: white;
+
 }

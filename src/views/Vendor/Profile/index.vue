@@ -1,12 +1,10 @@
-<template>
-  <el-button v-on:click="submit"><span class="color-white">{{text}}</span></el-button>
-</template>
+<template></template>
 
 <script>
 export default {
-  name: "primary-large-button",
+  name: "pena-vendor-profile",
   components: {},
-  props: ["text"],
+  props: {},
   data() {
     return {};
   },
@@ -14,19 +12,17 @@ export default {
   watch: {},
   beforeCreate() {},
   created() {},
-  beforeMount() {},
+  beforeMount() {
+  },
   mounted() {},
   beforeUpdate() {},
-  updated() {},
+  updated() {
+  },
   activated() {},
   deactivated() {},
   beforeDestroy() {},
   destroyed() {},
-  methods: {
-    submit() {
-      this.$emit("submit");
-    }
-  }
+  methods: {}
 };
 </script>
 
