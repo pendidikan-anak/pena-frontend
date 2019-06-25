@@ -1,0 +1,84 @@
+@import '~@/styles/variables';
+@import '~@/styles/typography';
+
+.user-register {
+    width: 100%;
+    min-height: 500px;
+
+    a {
+        color: $link;
+    }
+
+    .left {}
+
+    .right {
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+
+        .title {
+            margin-top: 100px;
+        }
+
+        .have-account {
+            margin-top: 24px;
+        }
+
+        .form {
+            width: 55%;
+            margin: 52px auto 0;
+
+            .fullname {
+                margin-bottom: 32px;
+            }
+
+            .birth-date {
+                margin-bottom: 32px;
+
+                .el-date-editor {
+                    width: 100%;
+                }
+            }
+
+            .birth-place {
+                margin-bottom: 32px;
+            }
+
+            .email {
+                margin-bottom: 32px;
+            }
+
+            .password {
+                margin-bottom: 32px;
+            }
+
+            .conf-password {
+                margin-bottom: 10px;
+            }
+        }
+
+        .validate {
+            text-align: left;
+            margin-bottom: 30px;
+
+            .correct {
+                color: $dark-mint;
+            }
+
+            i {
+                font-size: 13px;
+                margin-right: 5px;
+            }
+        }
+
+        .footer {
+            .el-button {
+                width: 100%;
+            }
+
+            .google {
+                text-align: center;
+            }
+        }
+    }
+}
