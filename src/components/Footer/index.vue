@@ -21,7 +21,7 @@
     </div>
     <div class="footer__right">
       <h1 class="medium-title title-office">Head Office</h1>
-      <p class="subhead address-office">Ruko Crown, Jl. Green Lake City Boulevard No.06, Petir, Cipondoh, Kota Tangerang, Banten 15147</p>
+      <h6 class="subhead address-office">Ruko Crown, Jl. Green Lake City Boulevard No.06, Petir, Cipondoh, Kota Tangerang, Banten 15147</h6>
       <h1 class="medium-title follow">Follow Us</h1>
       <div class="social-media">
         <div class="fb">f</div>

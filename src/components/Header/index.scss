@@ -1,17 +1,18 @@
-
-
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 56px;
-  padding: 8px 24px;
+  height: 72px;
+  padding: 8px 5%;
+  background-color: $primary;
 
   &__left {
     width: 30%;
     img {
-      width: 48px;
+      width: 76px;
     }
   }
 
@@ -28,9 +29,11 @@
       justify-content: flex-end;
       border-bottom: none;
       height: 56px;
+      background-color: $primary;
 
       .el-menu-item-custom {
         height: 56px;
+        color: $white;
       }
     }
   }
