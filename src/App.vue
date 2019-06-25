@@ -74,5 +74,6 @@ export default {
 
 .content {
   margin-bottom: 5px;
+  min-height: calc(100vh - 452px);
 }
 </style>

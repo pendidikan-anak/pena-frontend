@@ -1,7 +1,7 @@
 @import '~@/styles/variables';
 
 .detail-vendor {
-    padding: 40px;
+    padding: 48px 5%;
 
     &__title {
         margin-bottom: 36px;
@@ -70,9 +70,10 @@
 
     &__gallery {
         display: flex;
+        margin-bottom: 28px;
 
         .left {
-            width: 50%;
+            // width: 50%;
             margin-right: 16px;
 
             img {
@@ -103,8 +104,24 @@
     }
 
     &__description {
+        margin-bottom: 48px;
         h1 {
             margin-bottom: 15px;
+        }
+
+        p {
+            color: $black;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        button:first-child {
+            margin-right: 8px;
         }
     }
 }
