@@ -29,6 +29,7 @@
           font-weight: 100;
         }
       }
+
       &__description {
         margin-top: 24px;
       }
@@ -90,10 +91,10 @@
       left: 40px;
       right: 40px;
 
-      .title, .description {
+      .title,
+      .description {
         margin-bottom: 8px;
       }
     }
-
   }
 }

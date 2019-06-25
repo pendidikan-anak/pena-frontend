@@ -39,7 +39,7 @@
     .social-media {
       display: flex;
       justify-content: flex-end;
-      
+
       div {
         padding-right: 24px;
 
@@ -50,16 +50,14 @@
     }
   }
 
-
   ul {
     li {
       padding: 8px 0;
-      &.header{
+
+      &.header {
         margin-bottom: 24px;
         font-weight: bold;
       }
     }
   }
-
-  
 }

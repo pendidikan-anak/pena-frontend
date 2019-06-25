@@ -1,19 +1,15 @@
 <template>
   <header class="header">
     <div class="header__left">
-      <img alt="PENA logo" src="/img/logo/pena.png">
+      <img alt="PENA logo" src="@/assets/LOGO PENA.png">
     </div>
     <div class="header__center">
       <!-- <h1 class="large-title">Pendidikan Anak</h1> -->
     </div>
     <div class="header__right">
       <el-menu class="el-menu-header" mode="horizontal" @select="handleSelect">
-        <el-menu-item class="el-menu-item-custom" index="1">
-          Sekolah
-        </el-menu-item>
-        <el-menu-item class="el-menu-item-custom" index="2">
-          Bimbel
-        </el-menu-item>
+        <el-menu-item class="el-menu-item-custom" index="1">Sekolah</el-menu-item>
+        <el-menu-item class="el-menu-item-custom" index="2">Bimbel</el-menu-item>
         <el-menu-item class="el-menu-item-custom" index="3">Masuk</el-menu-item>
         <el-menu-item class="el-menu-item-custom" index="4">Daftar</el-menu-item>
       </el-menu>
@@ -22,62 +18,29 @@
 </template>
 
 <script>
-
 export default {
-  name: 'pena-header',
-  components: {
-
-  },
-  props: {
-
-  },
+  name: "pena-header",
+  components: {},
+  props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  beforeCreate() {
-
-  },
-  created() {
-
-  },
-  beforeMount() {
-
-  },
-  mounted() {
-
-  },
-  beforeUpdate() {
-
-  },
-  updated() {
-
-  },
-  activated() {
-
-  },
-  deactivated() {
-
-  },
-  beforeDestroy() {
-
-  },
-  destroyed() {
-
-  },
-  methods: {
-
-  }
-}
+  computed: {},
+  watch: {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  activated() {},
+  deactivated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  methods: {}
+};
 </script>
 
 <style lang='scss' scoped>
-@import './index.scss';
+@import "./index.scss";
 </style>

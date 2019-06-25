@@ -42,63 +42,42 @@
 </template>
 
 <script>
-import Card from '@/components/Card'
+import Card from "@/components/Card";
 
 export default {
-  name: 'pena-home',
+  name: "pena-home",
   components: {
-    'pena-card': Card
+    "pena-card": Card
   },
-  props: {
-
-  },
+  props: {},
   data() {
     return {
-      search: ''
-    }
+      search: ""
+    };
   },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  beforeCreate() {
-
-  },
-  created() {
-
-  },
-  beforeMount() {
-
-  },
-  mounted() {
-
-  },
-  beforeUpdate() {
-
-  },
-  updated() {
-
-  },
-  activated() {
-
-  },
-  deactivated() {
-
-  },
-  beforeDestroy() {
-
-  },
-  destroyed() {
-
-  },
+  computed: {},
+  watch: {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  activated() {},
+  deactivated() {},
+  beforeDestroy() {},
+  destroyed() {},
   methods: {
-
+    showSekolah() {
+      alert("Lihat semua sekolah");
+    },
+    showBimbel() {
+      alert("Lihat semua bimbel");
+    }
   }
-}
+};
 </script>
 
 <style lang='scss' scoped>
-@import './index.scss';
+@import "./index.scss";
 </style>
