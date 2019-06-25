@@ -3,11 +3,14 @@
 .detail-vendor {
     padding: 48px 5%;
 
+    .el-footer{
+        min-height: 200px;
+    }
+
     &__title {
         margin-bottom: 36px;
 
         h1 {
-            font-family: SourceSansPro;
             font-size: 46px;
             font-weight: normal;
             font-style: normal;

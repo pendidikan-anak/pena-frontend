@@ -1,69 +1,48 @@
 <template>
   <div id="app">
-    <pena-header />
+    <pena-header/>
     <router-view class="content"/>
-    <pena-footer />
+    <pena-footer v-if="showFooter"/>
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { log } from 'util';
 
 export default {
-  name: 'pena-app',
+  name: "pena-app",
   components: {
-    'pena-header': Header,
-    'pena-footer': Footer
+    "pena-header": Header,
+    "pena-footer": Footer
   },
-  props: {
-
-  },
+  props: {},
   data() {
     return {
-
+      showFooter: true
+    };
+  },
+  computed: {},
+  watch: {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {
+    if (this.$router.history.current.name === "vendorProfile") {
+      this.showFooter = false;
+    } else {
+      this.showFooter = true;
     }
   },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  beforeCreate() {
-
-  },
-  created() {
-
-  },
-  beforeMount() {
-
-  },
-  mounted() {
-
-  },
-  beforeUpdate() {
-
-  },
-  updated() {
-
-  },
-  activated() {
-
-  },
-  deactivated() {
-
-  },
-  beforeDestroy() {
-
-  },
-  destroyed() {
-
-  },
-  methods: {
-
-  }
-}
+  beforeUpdate() {},
+  updated() {},
+  activated() {},
+  deactivated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  methods: {}
+};
 </script>
 
 <style lang='scss'>

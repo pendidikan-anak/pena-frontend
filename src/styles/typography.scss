@@ -115,3 +115,13 @@ p {
   letter-spacing: 0.2px;
   line-height: 24px;
 }
+
+.el-button {
+  border-radius: 8px;
+  background-color: $dark-mint;
+  border-color: $dark-mint;
+
+  span {
+    color: $white;
+  }
+}

@@ -56,7 +56,7 @@
 <script>
 
 export default {
-  name: 'pena-home',
+  name: 'pena-vendor-register',
   components: {
   },
   props: {

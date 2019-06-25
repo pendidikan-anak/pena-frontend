@@ -28,6 +28,21 @@ export default new Router({
       path: '/detail-of-vendor',
       name: 'detailOfVendor',
       component: () => import( /* webpackChunkName: "about" */ './views/Product/Detail')
+    },
+    {
+      path: '/user-profile',
+      name: 'userProfile',
+      component: () => import( /* webpackChunkName: "about" */ './views/User/Profile')
+    },
+    {
+      path: '/vendor-profile',
+      name: 'vendorProfile',
+      component: () => import( /* webpackChunkName: "about" */ './views/Vendor/Profile')
+    },
+    {
+      path: '/sign-up',
+      name: 'userRegistration',
+      component: () => import( /* webpackChunkName: "about" */ './views/User/Register')
     }
   ]
 })

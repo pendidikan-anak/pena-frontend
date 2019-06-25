@@ -1,0 +1,105 @@
+@import '~@/styles/variables';
+
+.user-profile {
+    margin: 64px 30% 0;
+    justify-content: center;
+    align-content: center;
+
+    &__header {
+        justify-content: space-between;
+        display: flex;
+        margin-bottom: 40px;
+
+        .left {
+            width: 30%;
+
+            .el-image {
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+            }
+        }
+
+        .center {
+            width: 50%;
+        }
+
+        .right {
+            width: 20%;
+
+            .el-button {
+                background-color: white;
+                border-color: $dark-mint;
+
+                span {
+                    color: $dark-mint;
+                }
+            }
+        }
+    }
+
+    &__content {
+
+        .el-tab-pane {
+            padding: 4px;
+        }
+
+        .have-data {
+            margin-top: 25px;
+            box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+            background-color: #ffffff;
+            padding: 24px;
+            min-height: 166px;
+
+            .child {
+                display: flex;
+                margin-bottom: 15px;
+
+                .left {
+                    width: 90%;
+                }
+
+                .right {
+                    width: 10%;
+                    text-align: right;
+                }
+            }
+
+            .el-button {
+                background-color: $dark-mint;
+                border-color: $dark-mint;
+                margin: 0 0 0 auto;
+                margin-top: 24px;
+                display: flex;
+
+                span {
+                    color: white;
+                }
+            }
+        }
+
+        .do-not-have-data {
+            margin-top: 25px;
+            box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+            background-color: #ffffff;
+            padding-top: 32px;
+            height: 166px;
+
+            p {
+                text-align: center;
+            }
+
+            .el-button {
+                background-color: $dark-mint;
+                border-color: $dark-mint;
+                display: flex;
+                margin: 0 auto;
+                margin-top: 24px;
+
+                span {
+                    color: white;
+                }
+            }
+        }
+    }
+}
