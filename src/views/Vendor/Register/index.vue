@@ -45,9 +45,9 @@
       </div>
     </div>
     <div class="register__intro__right">
-      <el-button style="margin-top: 12px;" @click="previous" v-if="active > 0">Sebelumnya</el-button>
-      <el-button style="margin-top: 12px;" @click="next" v-if="active < 2">Selanjutnya</el-button>
-      <el-button style="margin-top: 12px;" @click="submit" v-if="active == 2">Selesai</el-button>
+      <button class="btn-regular secondary" style="margin-top: 12px;" @click="previous" v-if="active > 0">Sebelumnya</button>
+      <button class="btn-regular third" style="margin-top: 12px;" @click="next" v-if="active < 2">Selanjutnya</button>
+      <button style="margin-top: 12px;" @click="submit" v-if="active == 2">Selesai</button>
     </div>
   </div>
 </div>

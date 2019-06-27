@@ -1,0 +1,61 @@
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
+
+
+.dashboardVendor__right {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 76px;
+
+    &__logo {
+      margin-right: 25px;
+
+      img {
+        width: 126px;
+        height: 126px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    &__title {
+      width: 60%;
+
+      .title {
+        margin-bottom: 24px;
+      }
+      .point {
+        margin-bottom: 16px;
+      }
+    }
+
+
+  }
+
+  &__content {
+    &__iklan {
+      .box {
+        width: 600px;
+        border: solid 1px #dfdfdf;
+        padding: 24px;
+        border-radius: 8px;
+
+        &__header {
+          margin-bottom: 40px;
+          font-weight: bold;
+        }
+
+        &__content {
+          margin-bottom: 16px;
+          img {
+            height: 200px;
+            border-radius: 8px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}

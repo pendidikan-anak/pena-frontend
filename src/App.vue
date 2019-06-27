@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <pena-header/>
-    <router-view class="content"/>
-    <pena-footer v-if="showFooter"/>
+    <router-view class="content" :class="{noFooter: isFooter}"/>
+    <pena-footer v-if="isFooter"/>
   </div>
 </template>
 
@@ -20,20 +20,26 @@ export default {
   props: {},
   data() {
     return {
-      showFooter: true
+
     };
   },
-  computed: {},
+  computed: {
+    isFooter() {
+      if (this.$route.name == "vendor"
+          ) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+  },
   watch: {},
   beforeCreate() {},
-  created() {},
+  created() {
+  },
   beforeMount() {},
   mounted() {
-    if (this.$router.history.current.name === "vendorProfile") {
-      this.showFooter = false;
-    } else {
-      this.showFooter = true;
-    }
   },
   beforeUpdate() {},
   updated() {},
@@ -54,5 +60,9 @@ export default {
 .content {
   margin-bottom: 5px;
   min-height: calc(100vh - 452px);
+
+  &.noFooter{
+    min-height: calc(100vh - 72px);
+  }
 }
 </style>

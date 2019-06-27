@@ -42,7 +42,29 @@ export default new Router({
     {
       path: '/sign-up',
       name: 'userRegistration',
-      component: () => import( /* webpackChunkName: "about" */ './views/User/Register')
+      component: () => import( /* webpackChunkName: "vendor" */ './views/User/Register')
+    },
+    {
+      path: '/vendor',
+      name: 'vendor',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor'),
+      children: [
+        {
+          path: 'siswabaru',
+          name: 'siswabaru',
+          component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/SiswaBaru'),
+        },
+        {
+          path: 'profile',
+          name: 'vendorprofile',
+          component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/Profile'),
+        },
+        {
+          path: 'siswabaru/detail',
+          name: 'siswabarudetail',
+          component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/SiswaBaru/Detail'),
+        }
+      ]
     }
   ]
 })

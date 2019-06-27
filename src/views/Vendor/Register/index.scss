@@ -22,6 +22,10 @@
 
     &__right {
       float: right;
+
+      button {
+        margin-right: 8px;
+      }
     }
 
     &__description {

@@ -189,6 +189,25 @@ button {
     }
   }
 
+  &.third {
+    background-color: $white;
+    border: 1px solid $primary;
+    color: $primary;
+
+    &.disabled {
+      &:disabled {
+        color: $primary;
+        background-color: $white;
+        border: 1px solid $white;  
+      }
+    }
+
+    &:hover {
+      background-color: $white;
+      border: 1px solid $white;
+    }
+  }
+
   &.secondary {
     background-color: $white;
     border: solid 1px $pale-grey;
