@@ -3,15 +3,15 @@
     <div class="dashboardVendor__left">
       <ul>
         <li class="header">Menu Kesiswaan</li>
-        <router-link tag="li" :to="{name: 'vendorprofile'}">Profile</router-link>
-        <router-link tag="li" :to="{name: 'siswabaru'}">Daftar Registrasi Baru</router-link>
+        <router-link tag="li" :to="{name: 'vendorProfile'}" active-class="active">Profile</router-link>
+        <router-link tag="li" :to="{name: 'siswaBaru'}" active-class="active">Daftar Registrasi Baru</router-link>
         <li>Daftar Registrasi Ditolak</li>
         <li>Menunggu Persetujuan</li>
         <li>Menunggu Pembayaran</li>
       </ul>
     </div>
     <div class="dashboardVendor__right">
-      <router-view />
+      <router-view/>
       <!-- <div class="dashboardVendor__right__header">
         <div class="dashboardVendor__right__header">
           <div class="dashboardVendor__right__header__logo">
@@ -40,68 +40,35 @@
       </div>
       <div class="dashboardVendor__right__footer">
 
-      </div> -->
+      </div>-->
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'pena-vendor',
-  components: {
-
-  },
-  props: {
-
-  },
+  name: "pena-vendor",
+  components: {},
+  props: {},
   data() {
-    return {
-
-    }
+    return {};
   },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  beforeCreate() {
-
-  },
-  created() {
-
-  },
-  beforeMount() {
-
-  },
-  mounted() {
-
-  },
-  beforeUpdate() {
-
-  },
-  updated() {
-
-  },
-  activated() {
-
-  },
-  deactivated() {
-
-  },
-  beforeDestroy() {
-
-  },
-  destroyed() {
-
-  },
-  methods: {
-
-  }
-}
+  computed: {},
+  watch: {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  activated() {},
+  deactivated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  methods: {}
+};
 </script>
 
 <style lang='scss' scoped>
-@import './index.scss';
+@import "./index.scss";
 </style>

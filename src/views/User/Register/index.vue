@@ -8,11 +8,11 @@
         </div>
         <div class="have-account base-font">
           Sudah punya akun?
-          <a href="#">Login</a>
+          <router-link :to="{name: 'login'}">Login</router-link>
         </div>
         <div class="form">
           <div class="fullname">
-            <el-input placeholder="Masukkan nama lengkap" v-model="user.fullName"></el-input>
+            <el-input placeholder="Masukan nama lengkap" v-model="user.fullName"></el-input>
           </div>
           <div class="birth-date">
             <el-date-picker
@@ -20,18 +20,20 @@
               type="date"
               placeholder="Pilih tanggal lahir"
               format="dd/MM/yyyy"
-              value-format="dd-MM-yyyy"
+              value-format="yyyy-MM-dd"
+              :default-value="defaultDate"
+              :picker-options="pickerOptions"
             ></el-date-picker>
           </div>
           <div class="birth-place">
-            <el-input placeholder="Masukkan tempat lahir" v-model="user.birthPlace"></el-input>
+            <el-input placeholder="Masukan tempat lahir" v-model="user.birthPlace"></el-input>
           </div>
           <div class="email">
-            <el-input placeholder="Masukkan email" v-model="user.email"></el-input>
+            <el-input placeholder="Masukan email" v-model="user.email"></el-input>
           </div>
           <div class="password">
             <el-input
-              placeholder="Masukkan password"
+              placeholder="Masukan password"
               v-model="user.password1"
               v-on:input="inputPassword1"
               show-password
@@ -39,7 +41,7 @@
           </div>
           <div class="conf-password">
             <el-input
-              placeholder="Masukkan konfirmasi password"
+              placeholder="Masukan konfirmasi password"
               v-model="user.password2"
               v-on:input="inputPassword2"
               show-password
@@ -112,6 +114,7 @@ export default {
   props: {},
   data() {
     return {
+      defaultDate: "",
       user: {
         fullName: "",
         birthDate: "",
@@ -127,6 +130,11 @@ export default {
         special: false,
         length: false,
         match: false
+      },
+      pickerOptions: {
+        disabledDate(time) {
+          return time.getTime() > Date.now();
+        }
       }
     };
   },
@@ -135,7 +143,11 @@ export default {
   beforeCreate() {},
   created() {},
   beforeMount() {},
-  mounted() {},
+  mounted() {
+    const date = new Date();
+    date.setFullYear(date.getFullYear() - 15);
+    this.defaultDate = date;
+  },
   beforeUpdate() {},
   updated() {},
   activated() {},
@@ -161,24 +173,49 @@ export default {
       this.validatePassword.match =
         this.user.password2 == this.user.password1 ? true : false;
     },
-    submit() {
+    submit(e) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+      const valid = Object.keys(this.validatePassword).filter(v => {
+        return this.validatePassword[v] === true;
+      }).length;
       if (this.user.fullName.trim() === "") {
         alert("Nama lengkap harus diisi");
-      }
-      if (this.user.birthPlace.trim() === "") {
+      } else if (this.user.birthDate.trim() === "") {
+        alert("Tanggal lahir harus diisi");
+      } else if (this.user.birthPlace.trim() === "") {
         alert("Tempat lahir harus diisi");
-      }
-      if (this.user.email.trim() === "") {
+      } else if (this.user.email.trim() === "") {
         alert("Email harus diisi");
+      } else if (!re.test(this.user.email)) {
+        alert("Format email anda salah");
+      } else if (valid < 6) {
+        alert("Password tidak memenuhi syarat");
       } else {
-        if (!re.test(this.user.email)) {
-          alert("Format email anda salah");
-        }
+        e.preventDefault();
+        this.axios
+          .post("/api/rest-auth/registration/", {
+            fullname: this.user.fullName,
+            email: this.user.email,
+            birth_date: this.user.birthDate,
+            birth_place: this.user.birthPlace,
+            password1: this.user.password1,
+            password2: this.user.password2
+          })
+          .then(function(response) {
+            if (response.status === 201) {
+              this.$alert(
+                "Kami telah mengirimkan email konfirmasi ke email anda. Silakan buka email anda dan klik link pada email tersebut untuk aktivasi akun dan mengaktifkan fitur kami.",
+                "Terima kasih sudah mendaftar di Pena.",
+                {
+                  confirmButtonText: "OK",
+                  callback: action => {
+                    this.$router.push({ name: "login" });
+                  }
+                }
+              );
+            }
+          });
       }
-
-      alert("submit");
     }
   }
 };

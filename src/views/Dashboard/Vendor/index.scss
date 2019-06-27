@@ -10,15 +10,22 @@
     box-shadow: 0 2px 4px 0 rgba(190, 190, 190, 0.5);
     min-height: calc(100vh - 72px);
 
-    ul{
+    ul {
       padding: 81px 24px;
+
       li {
         cursor: pointer;
+
         &.header {
           margin-bottom: 24px;
           font-weight: bold;
           border-bottom: none;
         }
+
+        &.active {
+          color: $primary;
+        }
+
         border-bottom: 1px solid #dfdfdf;
         padding: 24px 0;
         text-align: left;
@@ -53,6 +60,7 @@
         .title {
           margin-bottom: 24px;
         }
+
         .point {
           margin-bottom: 16px;
         }
@@ -76,6 +84,7 @@
 
           &__content {
             margin-bottom: 16px;
+
             img {
               height: 200px;
               border-radius: 8px;

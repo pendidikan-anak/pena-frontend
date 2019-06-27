@@ -35,11 +35,6 @@ export default new Router({
       component: () => import( /* webpackChunkName: "about" */ './views/User/Profile')
     },
     {
-      path: '/vendor-profile',
-      name: 'vendorProfile',
-      component: () => import( /* webpackChunkName: "about" */ './views/Vendor/Profile')
-    },
-    {
       path: '/sign-up',
       name: 'userRegistration',
       component: () => import( /* webpackChunkName: "vendor" */ './views/User/Register')
@@ -50,18 +45,18 @@ export default new Router({
       component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor'),
       children: [
         {
-          path: 'siswabaru',
-          name: 'siswabaru',
+          path: 'siswaBaru',
+          name: 'siswaBaru',
           component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/SiswaBaru'),
         },
         {
           path: 'profile',
-          name: 'vendorprofile',
+          name: 'vendorProfile',
           component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/Profile'),
         },
         {
-          path: 'siswabaru/detail',
-          name: 'siswabarudetail',
+          path: 'siswaBaru/detail',
+          name: 'siswaBaruDetail',
           component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/SiswaBaru/Detail'),
         }
       ]

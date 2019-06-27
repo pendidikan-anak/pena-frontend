@@ -30,7 +30,7 @@
             font-stretch: normal;
             line-height: normal;
             letter-spacing: normal;
-            color: $dark-mint;
+            color: $primary;
             margin-bottom: 8px;
         }
     }
@@ -54,7 +54,7 @@
         button {
             border-radius: 8px;
             color: white;
-            background-color: $dark-mint;
+            background-color: $primary;
         }
 
         span {
@@ -63,10 +63,10 @@
 
         #wishlist {
             background-color: white;
-            border-color: $dark-mint;
+            border-color: $primary;
 
             span {
-                color: $dark-mint;
+                color: $primary;
             }
         }
     }

@@ -16,10 +16,10 @@
           >Jl. Batusari Raya No.12, RT.1/RW.9, Kb. Jeruk, Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530</p>
         </div>
         <div class="detail-vendor__button">
-          <button class="primary btn-large">Registrasi</button>
-          <button class="secondary btn-large" id="wishlist">
+          <el-button class="el-button btn-large">Registrasi</el-button>
+          <el-button class="secondary btn-large" id="wishlist">
             <span>+ Tambah Wishlist</span>
-          </button>
+          </el-button>
         </div>
       </el-aside>
       <div class="detail-vendor__right">
@@ -28,12 +28,8 @@
             <img src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" alt>
           </div>
           <div class="right">
-            <img
-              src="https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg"
-            >
-            <img
-              src="https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg"
-            >
+            <img src="https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg">
+            <img src="https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg">
           </div>
         </div>
         <div class="detail-vendor__description">
@@ -45,14 +41,16 @@
           <p>If you are in the market for a laptop it makes perfect sense to look around, compare your options and decide on the laptop that will ultimately work best for you. There are many companies out there that offer similar products; some are superior, some inferior, some at a premium price, and still others at bargain prices. The laptop industry isn’t always an industry where you get what you pay for.</p>
           <br>
           <br>
-          <p>When choosing a laptop, it is never a good idea to buy what others think you should buy, buy the laptop that has the features that you need at a price that you can afford. 
-          Don’t buy a laptop that has bells and whistles you will never utilize. Perhaps, that is what I like most about Sony and the products they offer. </p>
+          <p>
+            When choosing a laptop, it is never a good idea to buy what others think you should buy, buy the laptop that has the features that you need at a price that you can afford.
+            Don’t buy a laptop that has bells and whistles you will never utilize. Perhaps, that is what I like most about Sony and the products they offer.
+          </p>
         </div>
         <div style="height: unset">
-            <h1 class="medium-title">Rekomendasi sekolah lainnya</h1>
-            <div>
-                <pena-card/>
-            </div>
+          <h1 class="medium-title">Rekomendasi sekolah lainnya</h1>
+          <div>
+            <pena-card/>
+          </div>
         </div>
       </div>
     </el-container>
@@ -65,7 +63,7 @@ import Card from "@/components/Card";
 export default {
   name: "pena-vendor-detail",
   components: {
-      "pena-card": Card
+    "pena-card": Card
   },
   props: {},
   data() {
