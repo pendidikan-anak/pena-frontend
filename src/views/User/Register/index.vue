@@ -108,6 +108,7 @@
 
 <script>
 import { log } from "util";
+import { constants } from "crypto";
 export default {
   name: "pena-user-register",
   components: {},
@@ -179,17 +180,17 @@ export default {
         return this.validatePassword[v] === true;
       }).length;
       if (this.user.fullName.trim() === "") {
-        alert("Nama lengkap harus diisi");
+        this.$message.error("Nama lengkap harus diisi");
       } else if (this.user.birthDate.trim() === "") {
-        alert("Tanggal lahir harus diisi");
+        this.$message.error("Tanggal lahir harus diisi");
       } else if (this.user.birthPlace.trim() === "") {
-        alert("Tempat lahir harus diisi");
+        this.$message.error("Tempat lahir harus diisi");
       } else if (this.user.email.trim() === "") {
-        alert("Email harus diisi");
+        this.$message.error("Email harus diisi");
       } else if (!re.test(this.user.email)) {
-        alert("Format email anda salah");
+        this.$message.error("Format email anda salah");
       } else if (valid < 6) {
-        alert("Password tidak memenuhi syarat");
+        this.$message.error("Password tidak memenuhi syarat");
       } else {
         e.preventDefault();
         this.axios
@@ -201,9 +202,9 @@ export default {
             password1: this.user.password1,
             password2: this.user.password2
           })
-          .then(function(response) {
+          .then(response => {
             if (response.status === 201) {
-              this.$alert(
+              return this.$alert(
                 "Kami telah mengirimkan email konfirmasi ke email anda. Silakan buka email anda dan klik link pada email tersebut untuk aktivasi akun dan mengaktifkan fitur kami.",
                 "Terima kasih sudah mendaftar di Pena.",
                 {
@@ -214,6 +215,16 @@ export default {
                 }
               );
             }
+          })
+          .catch(error => {
+            const fieldError = Object.keys(error.response.data);
+            return this.$alert(
+              error.response.data[fieldError].join(""),
+              Object.keys(error.response.data).join(""),
+              {
+                confirmButtonText: "OK"
+              }
+            );
           });
       }
     }
