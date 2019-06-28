@@ -161,7 +161,6 @@ export default {
       this.validatePassword.numericSpecial = numericSpecial.test(value);
       this.validatePassword.length = length.test(value);
     },
-
     inputPassword2: function(value) {
       this.validatePassword.match =
         this.user.password2 == this.user.password1 ? true : false;

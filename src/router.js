@@ -58,6 +58,11 @@ export default new Router({
           path: 'siswaBaru/detail',
           name: 'siswaBaruDetail',
           component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/SiswaBaru/Detail'),
+        },
+        {
+          path: 'penjadwalan',
+          name: 'penjadwalan',
+          component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/Penjadwalan'),
         }
       ]
     }

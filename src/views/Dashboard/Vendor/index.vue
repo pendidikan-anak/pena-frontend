@@ -8,6 +8,11 @@
         <li>Daftar Registrasi Ditolak</li>
         <li>Menunggu Persetujuan</li>
         <li>Menunggu Pembayaran</li>
+        <router-link tag="li" :to="{name: 'penjadwalan'}" active-class="active">Penjadwalan</router-link>
+      </ul>
+      <ul>
+        <li class="header">Lainnya</li>
+        <li>Biaya Kesiswaan</li>
       </ul>
     </div>
     <div class="dashboardVendor__right">

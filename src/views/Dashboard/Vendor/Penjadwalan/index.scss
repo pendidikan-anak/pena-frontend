@@ -1,0 +1,34 @@
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
+@import '~@/styles/typography';
+
+
+.vendorPenjadwalan {
+    .el-button-reverse {
+        margin-left: 40px;
+    }
+
+    &__titleGelombang {
+        margin-bottom: 32px;
+    }
+
+    &__titleInterview {
+        margin: 32px 0;
+    }
+
+    &__inputInterview {
+        .dateTimePicker {
+            width: 358px;
+        }
+
+        .inputKuota {
+            width: 120px;
+            margin-left: 16px;
+        }
+
+        .inputInterval {
+            width: 185px;
+            margin-left: 16px;
+        }
+    }
+}

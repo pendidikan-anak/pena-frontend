@@ -125,3 +125,13 @@ p {
     color: $white;
   }
 }
+
+.el-button-reverse {
+  border-radius: 8px;
+  background-color: $white;
+  border-color: $primary;
+
+  span {
+    color: $primary;
+  }
+}
