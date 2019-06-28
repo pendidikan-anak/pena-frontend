@@ -61,17 +61,12 @@
                   Satu karakter huruf besar
                 </div>
                 <div class="numeric small-font">
-                  <i class="el-icon-check correct" v-if="validatePassword.numeric"></i>
+                  <i class="el-icon-check correct" v-if="validatePassword.numericSpecial"></i>
                   <i class="el-icon-close" v-else></i>
-                  Satu angka
+                  Satu angka atau karakter spesial
                 </div>
               </el-col>
               <el-col :span="12">
-                <div class="special small-font">
-                  <i class="el-icon-check correct" v-if="validatePassword.special"></i>
-                  <i class="el-icon-close" v-else></i>
-                  Satu karakter spesial
-                </div>
                 <div class="length small-font">
                   <i class="el-icon-check correct" v-if="validatePassword.length"></i>
                   <i class="el-icon-close" v-else></i>
@@ -127,8 +122,7 @@ export default {
       validatePassword: {
         lower: false,
         upper: false,
-        numeric: false,
-        special: false,
+        numericSpecial: false,
         length: false,
         match: false
       },
@@ -159,14 +153,12 @@ export default {
     inputPassword1: function(value) {
       var lower = new RegExp("^(?=.*[a-z])");
       var upper = new RegExp("^(?=.*[A-Z])");
-      var numeric = new RegExp("(?=.*[0-9])");
-      var special = new RegExp("(?=.[!@#$%^&])");
+      var numericSpecial = new RegExp("(?=.*[0-9|!@#$%^&])");
       var length = new RegExp("(?=.{8,})");
 
       this.validatePassword.lower = lower.test(value);
       this.validatePassword.upper = upper.test(value);
-      this.validatePassword.numeric = numeric.test(value);
-      this.validatePassword.special = special.test(value);
+      this.validatePassword.numericSpecial = numericSpecial.test(value);
       this.validatePassword.length = length.test(value);
     },
 
@@ -189,7 +181,7 @@ export default {
         this.$message.error("Email harus diisi");
       } else if (!re.test(this.user.email)) {
         this.$message.error("Format email anda salah");
-      } else if (valid < 6) {
+      } else if (valid < 5) {
         this.$message.error("Password tidak memenuhi syarat");
       } else {
         e.preventDefault();
