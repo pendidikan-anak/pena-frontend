@@ -39,7 +39,7 @@
     </div>
     <div class="vendorPenjadwalan__showGelombang">
       <h1 class="base-font">List Gelombang Pendaftaran</h1>
-      <el-table :data="dataGelombang" style="width: 30%">
+      <el-table :data="dataGelombang" style="width: 50%">
         <el-table-column type="index" width="50"></el-table-column>
         <el-table-column prop="from" label="Dari Tanggal"></el-table-column>
         <el-table-column prop="to" label="Sampai Tanggal"></el-table-column>
@@ -96,10 +96,10 @@ export default {
         kuota: this.kuota
       });
 
-      const from = this.interview[0].split(" ")
-      const fromDate = from[0].split("-")
-      const to = this.interview[1].split(" ")
-      const toDate = to[0].split("-")
+      const from = this.interview[0].split(" ");
+      const fromDate = from[0].split("-");
+      const to = this.interview[1].split(" ");
+      const toDate = to[0].split("-");
 
       this.dataInterview.push({
         from: `${fromDate[2]}-${fromDate[1]}-${fromDate[0]} ${from[1]}`,

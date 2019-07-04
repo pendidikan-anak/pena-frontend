@@ -20,19 +20,24 @@ export default new Router({
       component: () => import( /* webpackChunkName: "about" */ './views/Login')
     },
     {
-      path: '/list-of-vendor',
-      name: 'listOfVendor',
+      path: '/vendors',
+      name: 'vendors',
       component: () => import( /* webpackChunkName: "about" */ './views/Product/List')
     },
     {
-      path: '/detail-of-vendor',
-      name: 'detailOfVendor',
+      path: '/detail-vendor',
+      name: 'detailVendor',
       component: () => import( /* webpackChunkName: "about" */ './views/Product/Detail')
+    },
+    {
+      path: '/registration-form',
+      name: 'registrationForm',
+      component: () => import( /* webpackChunkName: "about" */ './views/Product/Detail/RegistrationForm')
     },
     {
       path: '/user-profile',
       name: 'userProfile',
-      component: () => import( /* webpackChunkName: "about" */ './views/User/Profile')
+      component: () => import( /* webpackChunkName: "about" */ './views/Dashboard/User/Profile')
     },
     {
       path: '/sign-up',
@@ -63,6 +68,11 @@ export default new Router({
           path: 'penjadwalan',
           name: 'penjadwalan',
           component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/Penjadwalan'),
+        },
+        {
+          path: 'biayaKesiswaan',
+          name: 'biayaKesiswaan',
+          component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/BiayaKesiswaan'),
         }
       ]
     }

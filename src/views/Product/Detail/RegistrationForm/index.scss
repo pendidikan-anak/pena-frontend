@@ -1,0 +1,54 @@
+@import '~@/styles/variables';
+@import '~@/styles/mixins';
+
+.registrationForm {
+    margin: 5% 20%;
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__content {
+        display: flex;
+        margin-bottom: 40px;
+
+        &__left,
+        &__right {
+            width: 50%;
+
+            .wrap {
+                margin-bottom: 16px;
+
+                p {
+                    display: flex;
+                }
+
+                i {
+                    background-color: $lightish-green;
+                    border-radius: 50%;
+                    color: $white;
+                    width: 14px;
+                    height: 14px;
+                    // padding: 4px;
+                    font-size: 10px;
+                    margin-left: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .title {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+
+        button {
+            margin-right: 16px;
+        }
+    }
+}

@@ -1,0 +1,163 @@
+@import '~@/styles/variables';
+@import '~@/styles/typography';
+
+.user-profile {
+    margin: 64px 25% 0;
+
+    &__header {
+        justify-content: space-between;
+        display: flex;
+        margin-bottom: 40px;
+
+        .left {
+            width: 30%;
+
+            .el-image {
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+            }
+        }
+
+        .center {
+            width: 50%;
+        }
+
+        .right {
+            width: 20%;
+
+            .el-button {
+                background-color: white;
+                border-color: $primary;
+
+                span {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    &__content {
+
+        .el-tab-pane {
+            padding: 4px;
+        }
+
+        .have-data {
+            margin-top: 25px;
+            box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+            background-color: #ffffff;
+            padding: 24px;
+            min-height: 166px;
+
+            .child {
+                display: flex;
+                margin-bottom: 15px;
+
+                .left {
+                    width: 90%;
+                }
+
+                .right {
+                    width: 10%;
+                    text-align: right;
+                }
+            }
+
+            .el-button {
+                background-color: $primary;
+                border-color: $primary;
+                margin: 0 0 0 auto;
+                margin-top: 24px;
+                display: flex;
+
+                span {
+                    color: white;
+                }
+            }
+        }
+
+        .do-not-have-data {
+            margin-top: 25px;
+            box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+            background-color: #ffffff;
+            padding-top: 32px;
+            height: 166px;
+
+            p {
+                text-align: center;
+            }
+
+            .el-button {
+                background-color: $primary;
+                border-color: $primary;
+                display: flex;
+                margin: 0 auto;
+                margin-top: 24px;
+
+                span {
+                    color: white;
+                }
+            }
+        }
+
+        .transaction {
+            min-height: 200px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            box-shadow: 0 0 4px 0 rgba(190, 190, 190, 0.5);
+            background-color: #ffffff;
+
+            &__header {
+                padding: 10px 0 0 16px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                background-color: orange;
+                height: 36px;
+            }
+
+            &__content {
+                display: flex;
+                padding: 20px;
+
+                &__left {
+                    width: 45%;
+                    text-align: center;
+                }
+
+                &__center {
+                    width: 10%;
+                }
+
+                &__right {
+                    width: 45%;
+                    text-align: center;
+                }
+            }
+
+            &__footer {
+                padding: 16px;
+                display: table;
+                width: 100%;
+                align-items: center;
+
+                &__left {
+                    width: 40%;
+                    display: table-cell;
+                }
+
+                &__center {
+                    width: 20%;
+                    display: table-cell;
+                    vertical-align: bottom;
+                }
+
+                &__right {
+                    width: 20%;
+                    display: table-cell;
+                    vertical-align: bottom;
+                }
+            }
+        }
+    }
+}

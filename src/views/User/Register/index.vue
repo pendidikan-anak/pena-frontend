@@ -1,7 +1,9 @@
 <template>
   <div class="user-register">
     <el-row>
-      <el-col class="left" :span="12">image</el-col>
+      <el-col class="left" :span="12">
+        <img src="/img/background/background.png" />
+      </el-col>
       <el-col class="right" :span="12">
         <div class="title">
           <h1 class="large-title">Selamat Datang di Pena</h1>
@@ -160,6 +162,8 @@ export default {
       this.validatePassword.upper = upper.test(value);
       this.validatePassword.numericSpecial = numericSpecial.test(value);
       this.validatePassword.length = length.test(value);
+      this.validatePassword.match =
+        this.user.password2 == this.user.password1 ? true : false;
     },
     inputPassword2: function(value) {
       this.validatePassword.match =

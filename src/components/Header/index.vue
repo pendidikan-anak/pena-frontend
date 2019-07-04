@@ -10,7 +10,7 @@
     </div>
     <div class="header__right">
       <el-menu class="el-menu-header" mode="horizontal" @select="handleSelect">
-        <router-link :to="{name: 'listOfVendor'}">
+        <router-link :to="{name: 'vendors'}">
           <el-menu-item class="el-menu-item-custom" index="1">Sekolah</el-menu-item>
         </router-link>
         <router-link :to="{name: 'home'}">

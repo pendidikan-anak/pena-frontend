@@ -20,7 +20,7 @@
           <div class="hover__address">
             <p>Jalan Ir Haji Juanda No.29 7 3, RT.7/RW.3, Kb. Klp., Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10120</p>
           </div>
-          <router-link tag="a" :to="{name: 'detailOfVendor'}">
+          <router-link tag="a" :to="{name: 'detailVendor'}">
             <span class="detail color-primary strong">Lihat Detil</span>
           </router-link>
         </div>

@@ -20,7 +20,10 @@
           <h1 class="large-title">Rp 120.000</h1>
         </div>
         <div class="detail-vendor__button">
-          <el-button class="el-button btn-large">Registrasi</el-button>
+          <router-link tag="a" :to="{name: 'registrationForm'}">
+            <el-button class="el-button btn-large">Registrasi</el-button>
+            <!-- Registrasi -->
+          </router-link>
           <el-button class="secondary btn-large" id="wishlist">
             <span>+ Tambah Wishlist</span>
           </el-button>

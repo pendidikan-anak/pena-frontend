@@ -3,7 +3,7 @@
     <div class="dashboardVendor__left">
       <ul>
         <li class="header">Menu Kesiswaan</li>
-        <router-link tag="li" :to="{name: 'vendorProfile'}" active-class="active">Profile</router-link>
+        <router-link tag="li" :to="{name: 'vendorProfile'}" active-class="active">Profil</router-link>
         <router-link tag="li" :to="{name: 'siswaBaru'}" active-class="active">Daftar Registrasi Baru</router-link>
         <li>Daftar Registrasi Ditolak</li>
         <li>Menunggu Persetujuan</li>
@@ -12,7 +12,7 @@
       </ul>
       <ul>
         <li class="header">Lainnya</li>
-        <li>Biaya Kesiswaan</li>
+        <router-link tag="li" :to="{name: 'biayaKesiswaan'}" active-class="active">Biaya Kesiswaan</router-link>
       </ul>
     </div>
     <div class="dashboardVendor__right">

@@ -1,0 +1,175 @@
+<template>
+  <div class="user-profile">
+    <div class="user-profile__header">
+      <div class="left">
+        <el-image
+          class="el-image"
+          src="https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80%20282w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80%20564w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=582&q=80%20582w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=882&q=80%20882w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1164&q=80%201164w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1182&q=80%201182w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1482&q=80%201482w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1764&q=80%201764w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1782&q=80%201782w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2082&q=80%202082w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2364&q=80%202364w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2382&q=80%202382w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2682&q=80%202682w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2964&q=80%202964w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2982&q=80%202982w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3282&q=80%203282w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3564&q=80%203564w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3582&q=80%203582w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w,%20https://images.unsplash.com/photo-1532910404247-7ee9488d7292?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3780&q=80%203780w"
+          fit="fill"
+        ></el-image>
+      </div>
+      <div class="center">
+        <h1 class="large-title">{{user.name}}</h1>
+      </div>
+      <div class="right">
+        <el-button size="mini">
+          <span class="small-font">Edit Profile</span>
+        </el-button>
+      </div>
+    </div>
+    <div class="user-profile__content">
+      <el-tabs v-model="activeTab">
+        <el-tab-pane label="Anak" name="1">
+          <div class="do-not-have-data" v-if="user.children.length == 0">
+            <span>
+              <p class="base-font">Anda belum menambahkan anak.</p>
+            </span>
+            <span>
+              <p class="base-font">Silahkan tambahkan anak.</p>
+            </span>
+            <el-button size="mini">
+              <span class="small-font">Tambah Anak</span>
+            </el-button>
+          </div>
+          <div class="have-data" v-else>
+            <div v-for="child in user.children" :key="child.id">
+              <div class="child base-font">
+                <div class="left">{{child.name}}</div>
+                <div class="right">
+                  <i class="el-icon-edit"></i>
+                </div>
+              </div>
+            </div>
+            <el-button size="mini">
+              <span class="small-font">Tambah Anak</span>
+            </el-button>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Wishlist" name="2">
+          <div class="do-not-have-data" v-if="user.wishlists.length == 0">
+            <span>
+              <p class="base-font">Anda belum menambahkan wishlist.</p>
+            </span>
+            <span>
+              <p class="base-font">Silahkan tambahkan wishlist.</p>
+            </span>
+            <el-button size="mini">
+              <span class="small-font">Tambah Anak</span>
+            </el-button>
+          </div>
+          <div class="have-data" v-else>
+            <div v-for="wishlist in user.wishlists" :key="wishlist.id">
+              <div class="child base-font">
+                <div class="left">{{wishlist.name}}</div>
+                <div class="right">
+                  <i class="el-icon-delete"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+        <el-tab-pane label="Daftar Registrasi" name="3">
+          <div class="do-not-have-data" v-if="user.transactions.length == 0">
+            <span>
+              <p class="base-font">Anda belum mendaftarkan anak anda ke sekolah manapun.</p>
+            </span>
+            <span>
+              <p class="base-font">Silahkan cari sekolah yang tepat untuk anak anda.</p>
+            </span>
+            <el-button size="mini">
+              <span class="small-font">Cari Sekolah</span>
+            </el-button>
+          </div>
+          <div
+            class="transaction"
+            v-for="transaction in user.transactions"
+            :key="transaction.id"
+            v-else
+          >
+            <div class="transaction__header">
+              <h1 class="base-font">Menunggu Pembayaran Formulir</h1>
+            </div>
+            <div class="transaction__content">
+              <div class="transaction__content__left">{{transaction.childName}}</div>
+              <div class="transaction__content__center">
+                <i class="el-icon-d-arrow-right"></i>
+              </div>
+              <div class="transaction__content__right">{{transaction.schoolName}}</div>
+            </div>
+            <div class="transaction__footer">
+              <div class="transaction__footer__left">
+                <p>Biaya formulir</p>
+                <h1 class="medium-title">Rp 120.000</h1>
+              </div>
+              <div class="transaction__footer__center">
+                <el-button class="el-button-reverse" size="small">Batalkan Pendaftaran</el-button>
+              </div>
+              <div class="transaction__footer__right">
+                <el-button class="el-button" size="small">Lanjut ke Pembayaran</el-button>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "pena-userProfile",
+  components: {},
+  props: {},
+  data() {
+    return {
+      activeTab: "1",
+      user: {
+        name: "",
+        children: [
+          { id: 1, name: "Banda" },
+          { id: 2, name: "Neira" },
+          { id: 3, name: "Neira" },
+          { id: 4, name: "Neira" },
+          { id: 5, name: "Neira" }
+        ],
+        wishlists: [
+          { id: 1, name: "Sekolah Dasar Tarsisius 1" },
+          { id: 2, name: "Sekolah Dasar Tarsisius 2" },
+          { id: 3, name: "Sekolah Dasar Tarsisius 3" },
+          { id: 4, name: "Sekolah Dasar Tarsisius 4" },
+          { id: 5, name: "Sekolah Dasar Tarsisius 5" }
+        ],
+        transactions: [
+          {
+            childName: "Banda",
+            schoolName: "SD Tarsi",
+            form: 120000,
+            status: "WAITING_PAYMENT"
+          }
+        ]
+      }
+    };
+  },
+  computed: {},
+  watch: {},
+  beforeCreate() {},
+  created() {},
+  beforeMount() {
+    if (localStorage.name) {
+      this.user.name = localStorage.name;
+    }
+  },
+  mounted() {},
+  beforeUpdate() {},
+  updated() {},
+  activated() {},
+  deactivated() {},
+  beforeDestroy() {},
+  destroyed() {},
+  methods: {}
+};
+</script>
+
+<style lang='scss' scoped>
+@import "./index.scss";
+</style>
