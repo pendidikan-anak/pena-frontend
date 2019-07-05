@@ -167,6 +167,10 @@ export default {
         this.$message.error("Email harus diisi");
       } else if (!re.test(this.user.email)) {
         this.$message.error("Format email anda salah");
+      } else if (this.user.password1.trim() === "") {
+        this.$message.error("Password harus diisi");
+      } else if (this.user.password2.trim() === "") {
+        this.$message.error("Konfirmasi password harus diisi");
       } else if (valid < 5) {
         this.$message.error("Password tidak memenuhi syarat");
       } else if (!this.agreement) {
@@ -175,6 +179,7 @@ export default {
         );
       } else {
         e.preventDefault();
+        this.$router.push({ name: "registerVendor" });
         // this.axios
         //   .post("/api/rest-auth/registration/", {
         //     fullname: this.user.fullName,

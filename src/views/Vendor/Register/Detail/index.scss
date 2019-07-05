@@ -1,6 +1,9 @@
 .register {
   &__intro {
     margin: 5% 25% 10%;
+    border-radius: 8px;
+    border: solid 1px #dfdfdf;
+    padding: 40px;
 
     &__form {
       margin-top: 38.5px;
@@ -11,7 +14,7 @@
         margin-right: 32px;
 
         &__kode_pos {
-          width: 15%;
+          width: 20%;
         }
       }
 
@@ -21,7 +24,7 @@
     }
 
     &__right {
-      float: right;
+      text-align: right;
 
       button {
         margin-right: 8px;

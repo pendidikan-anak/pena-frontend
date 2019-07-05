@@ -7,7 +7,6 @@
         <el-step title="Informasi Detil"></el-step>
       </el-steps>
       <div class="register__intro__form">
-        <div class v-if="active === 0">Informasi Kontak</div>
         <div v-if="active === 1">
           <el-input
             class="register__intro__form__input"
@@ -106,7 +105,12 @@
           @click="next"
           v-if="active < 2"
         >Selanjutnya</button>
-        <button style="margin-top: 12px;" @click="submit" v-if="active == 2">Selesai</button>
+        <button
+          class="btn-regular third"
+          style="margin-top: 12px;"
+          @click="submit"
+          v-if="active == 2"
+        >Selesai</button>
       </div>
     </div>
   </div>
@@ -152,7 +156,11 @@ export default {
       if (this.active++ > 2) this.active = 0;
     },
     previous() {
-      this.active--;
+      if (this.active == 1) {
+        window.history.back();
+      } else {
+        this.active--;
+      }
     },
     submit() {
       alert("Registrasi Sukses!");

@@ -13,6 +13,10 @@ export default new Router({
       path: '/become-a-partner',
       name: 'becomeAPartner',
       component: () => import(/* webpackChunkName: "about" */ './views/Vendor/Register')
+    },{
+      path: '/register-vendor',
+      name: 'registerVendor',
+      component: () => import(/* webpackChunkName: "about" */ './views/Vendor/Register/Detail')
     },
     {
       path: '/login',

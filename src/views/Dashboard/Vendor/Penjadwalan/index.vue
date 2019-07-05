@@ -40,19 +40,45 @@
     <div class="vendorPenjadwalan__showGelombang">
       <h1 class="base-font">List Gelombang Pendaftaran</h1>
       <el-table :data="dataGelombang" style="width: 50%">
-        <el-table-column type="index" width="50"></el-table-column>
+        <el-table-column type="index" width="50" label="No"></el-table-column>
         <el-table-column prop="from" label="Dari Tanggal"></el-table-column>
         <el-table-column prop="to" label="Sampai Tanggal"></el-table-column>
+        <el-table-column width="50">
+          <template slot-scope="scope">
+            <el-popover placement="right" trigger="click">
+              <div>
+                <a>Edit</a>
+              </div>
+              <div>
+                <a>Hapus</a>
+              </div>
+              <i class="el-icon-edit" @click="handleEdit(scope.$index, scope.row)" slot="reference"></i>
+            </el-popover>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <div class="vendorPenjadwalan__showInterview">
       <h1 class="base-font">List Jadwal Interview</h1>
       <el-table :data="dataInterview" style="width: 80%">
-        <el-table-column type="index" width="50"></el-table-column>
+        <el-table-column type="index" width="50" label="No"></el-table-column>
         <el-table-column prop="from" label="Dari"></el-table-column>
         <el-table-column prop="to" label="Sampai"></el-table-column>
         <el-table-column prop="kuota" label="Kuota"></el-table-column>
         <el-table-column prop="interval" label="Durasi"></el-table-column>
+        <el-table-column width="50">
+          <template slot-scope="scope">
+            <el-popover placement="right" trigger="click">
+              <div>
+                <a>Edit</a>
+              </div>
+              <div>
+                <a>Hapus</a>
+              </div>
+              <i class="el-icon-edit" @click="handleEdit(scope.$index, scope.row)" slot="reference"></i>
+            </el-popover>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
   </div>
