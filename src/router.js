@@ -36,12 +36,23 @@ export default new Router({
     {
       path: '/registration-form',
       name: 'registrationForm',
-      component: () => import( /* webpackChunkName: "about" */ './views/Product/Detail/RegistrationForm')
+      component: () => import( /* webpackChunkName: "about" */ './views/Product/Detail/RegistrationForm'),
+      props: true
     },
     {
       path: '/user-profile',
       name: 'userProfile',
-      component: () => import( /* webpackChunkName: "about" */ './views/Dashboard/User/Profile')
+      component: () => import( /* webpackChunkName: "about" */ './views/Dashboard/User/Profile'),
+    },
+    {
+      path: '/verify-data',
+      name: 'verifyData',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/User/VerifyData'),
+    },
+    {
+      path: '/child',
+      name: 'child',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/User/Child'),
     },
     {
       path: '/sign-up',

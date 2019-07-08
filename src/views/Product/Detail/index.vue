@@ -20,10 +20,7 @@
           <h1 class="large-title">Rp 120.000</h1>
         </div>
         <div class="detail-vendor__button">
-          <router-link tag="a" :to="{name: 'registrationForm'}">
-            <el-button class="el-button btn-large">Registrasi</el-button>
-            <!-- Registrasi -->
-          </router-link>
+          <el-button class="el-button btn-large" v-on:click="register">Registrasi</el-button>
           <el-button class="secondary btn-large" id="wishlist">
             <span>+ Tambah Wishlist</span>
           </el-button>
@@ -59,6 +56,11 @@
         </div>
       </div>
     </el-container>
+    <el-dialog title="Anak yang akan didaftarkan:" :visible.sync="dialogVisible">
+      <div class="child" v-for="child in user.children" :key="child.id" @click="select(child)">
+        <a>{{child.name}}</a>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -72,7 +74,31 @@ export default {
   },
   props: {},
   data() {
-    return {};
+    return {
+      dialogVisible: true,
+      user: {
+        children: [
+          {
+            id: 1,
+            name: "Banda",
+            birthDate: "10-01-2001",
+            birthPlace: "Banda Neira",
+            gender: "Laki - laki",
+            bloodType: "A",
+            parentName: "Brandon"
+          },
+          {
+            id: 2,
+            name: "Neira",
+            birthDate: "16-02-1998",
+            birthPlace: "Banda Neira",
+            gender: "Perempuan",
+            bloodType: "A",
+            parentName: "Brandon"
+          }
+        ]
+      }
+    };
   },
   computed: {},
   watch: {},
@@ -86,7 +112,32 @@ export default {
   deactivated() {},
   beforeDestroy() {},
   destroyed() {},
-  methods: {}
+  methods: {
+    register() {
+      if (this.user.child.length == 0) {
+        this.$alert(
+          "Maaf anda belum menambahkan satu anak pun. Silahkan tambahkan anak terlebih dahulu",
+          "Anak Belum Ditambahkan",
+          {
+            confirmButtonText: "Tambahkan Anak",
+            center: true,
+            confirmButtonClass: "btn-block primary",
+            callback: action => {
+              this.$router.push({ name: "child" });
+            }
+          }
+        );
+      } else {
+        this.$alert("<div>Banda</div>", "Anak yang akan didaftarkan:", {
+          dangerouslyUseHTMLString: true
+        });
+      }
+    },
+    select(child) {
+      console.log(child);
+      this.$router.push({ name: "registrationForm", params: { child: child } });
+    }
+  }
 };
 </script>
 

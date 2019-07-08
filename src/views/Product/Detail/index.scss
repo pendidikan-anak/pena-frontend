@@ -3,8 +3,12 @@
 .detail-vendor {
     padding: 48px 5%;
 
-    .el-footer{
+    .el-footer {
         min-height: 200px;
+    }
+
+    .child {
+        margin-bottom: 16px;
     }
 
     &__title {
@@ -112,6 +116,7 @@
 
     &__description {
         margin-bottom: 48px;
+
         h1 {
             margin-bottom: 15px;
         }

@@ -1,0 +1,30 @@
+.verifyData {
+    margin: 64px 25% 0;
+
+    &__form {
+        width: 50%;
+        margin: 40px 0;
+
+        .el-input,
+        .wrap {
+            margin-bottom: 20px;
+
+            .title {
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+
+        &__left {
+            width: 47.5%;
+        }
+
+        &__right {
+            width: 47.5%;
+        }
+    }
+}

@@ -12,9 +12,11 @@
         <h1 class="large-title">{{user.name}}</h1>
       </div>
       <div class="right">
-        <el-button size="mini">
-          <span class="small-font">Edit Profile</span>
-        </el-button>
+        <router-link tag="el-button" :to="{name: 'verifyData'}">
+          <!-- <el-button size="mini"> -->
+          <span class="small-font">Lengkapi Data</span>
+          <!-- </el-button> -->
+        </router-link>
       </div>
     </div>
     <div class="user-profile__content">
@@ -40,9 +42,11 @@
                 </div>
               </div>
             </div>
-            <el-button size="mini">
-              <span class="small-font">Tambah Anak</span>
-            </el-button>
+            <router-link :to="{name: 'child'}">
+              <el-button size="mini">
+                <span class="small-font">Tambah Anak</span>
+              </el-button>
+            </router-link>
           </div>
         </el-tab-pane>
         <el-tab-pane label="Wishlist" name="2">

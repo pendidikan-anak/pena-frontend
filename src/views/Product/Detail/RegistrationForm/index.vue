@@ -7,29 +7,27 @@
       <div class="registrationForm__content__left">
         <div class="wrap">
           <p class="title">Nama</p>
-          <div class="description">Jacob Jenkins</div>
+          <div class="description">{{child.name}}</div>
         </div>
         <div class="wrap">
           <p class="title">Tanggal Lahir</p>
-          <div class="description">10 Jan 2012</div>
+          <div class="description">{{child.birthDate}}</div>
         </div>
         <div class="wrap">
           <p class="title">Tempat Lahir</p>
-          <div class="description">Jakarta</div>
+          <div class="description">{{child.birthPlace}}</div>
         </div>
         <div class="wrap">
           <p class="title">Jenis Kelamin</p>
-          <div class="description">Pria</div>
+          <div class="description">{{child.gender}}</div>
         </div>
         <div class="wrap">
           <p class="title">Nama Orang Tua</p>
-          <div class="description">Brandon Asgard</div>
+          <div class="description">{{child.parentName}}</div>
         </div>
         <div class="wrap">
-          <p class="title">Kelas</p>
-          <div class="description">
-            <el-input v-model="kelas"></el-input>
-          </div>
+          <p class="title">Golongan Darah</p>
+          <div class="description">{{child.bloodType}}</div>
         </div>
       </div>
       <div class="registrationForm__content__right">
@@ -95,6 +93,15 @@
         </div>
       </div>
     </div>
+    <div class="registrationForm__input">
+      <el-input placeholder="Isi kelas (contoh: Kelas 12)" v-model="kelas"></el-input>
+      <el-input
+        type="textarea"
+        :rows="2"
+        placeholder="Tambahkan Catatan Khusus (contoh: pendengaran terganggu)"
+        v-model="notes"
+      ></el-input>
+    </div>
     <div class="registrationForm__footer">
       <button class="btn-block third">Edit</button>
       <button class="btn-block primary" @click="submitForm">Lanjutkan</button>
@@ -106,7 +113,7 @@
 export default {
   name: "pena-registrationForm",
   components: {},
-  props: {},
+  props: ["child"],
   data() {
     return {
       popUpKK: false,
@@ -114,7 +121,8 @@ export default {
       popUpKtpAyah: false,
       popUpKtpIbu: false,
       popUpLainnya: false,
-      kelas: "",
+      kelas: null,
+      notes: null,
       centerDialogVisible: true
     };
   },

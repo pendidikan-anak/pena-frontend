@@ -1,27 +1,24 @@
 @import '~@/styles/variables';
 @import '~@/styles/mixins';
 
-.registrationForm {
+.child {
     margin: 5% 20%;
 
-    .el-dialog {
-        border-radius: 100px;
-    }
-
-    &__title {
+    &__header {
         margin-bottom: 40px;
     }
 
-    &__content {
+    &__form {
         display: flex;
-        margin-bottom: 24px;
+        margin-bottom: 40px;
 
         &__left,
         &__right {
             width: 50%;
 
+
+            .el-input,
             .wrap {
-                margin-bottom: 16px;
 
                 p {
                     display: flex;
@@ -45,21 +42,11 @@
                     margin-bottom: 8px;
                 }
 
-                .el-input {
-                    width: 50%;
-                }
+                width: 90%;
+                margin-bottom: 16px;
             }
         }
     }
-
-    &__input {
-        margin-bottom: 64px;
-
-        .el-input {
-            margin-bottom: 24px;
-        }
-    }
-
 
     &__footer {
         display: flex;
