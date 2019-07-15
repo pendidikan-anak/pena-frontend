@@ -6,7 +6,6 @@ import './registerServiceWorker'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-
 //Third Party
 import ElementUI from 'element-ui';
 import locale from 'element-ui/lib/locale/lang/en'
@@ -18,6 +17,12 @@ Vue.axios.defaults.baseURL = 'http://sahabatpena.co.id:8000';
 Vue.use(ElementUI, { locale });
 
 Vue.config.productionTip = false
+
+// Vue.prototype.$http = Axios;
+// const token = localStorage.getItem('token')
+// if (token) {
+//   Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+// }
 
 new Vue({
   router,

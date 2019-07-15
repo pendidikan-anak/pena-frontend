@@ -113,7 +113,9 @@
 export default {
   name: "pena-registrationForm",
   components: {},
-  props: ["child"],
+  props: {
+    child: Object
+  },
   data() {
     return {
       popUpKK: false,

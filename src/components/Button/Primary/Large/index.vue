@@ -6,7 +6,9 @@
 export default {
   name: "primary-large-button",
   components: {},
-  props: ["text"],
+  props: {
+    text: String
+  },
   data() {
     return {};
   },

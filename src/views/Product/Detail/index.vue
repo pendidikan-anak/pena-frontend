@@ -20,7 +20,7 @@
           <h1 class="large-title">Rp 120.000</h1>
         </div>
         <div class="detail-vendor__button">
-          <el-button class="el-button btn-large" v-on:click="register">Registrasi</el-button>
+          <el-button class="el-button btn-large" @click="dialogVisible = true">Registrasi</el-button>
           <el-button class="secondary btn-large" id="wishlist">
             <span>+ Tambah Wishlist</span>
           </el-button>
@@ -75,7 +75,7 @@ export default {
   props: {},
   data() {
     return {
-      dialogVisible: true,
+      dialogVisible: false,
       user: {
         children: [
           {
@@ -127,10 +127,6 @@ export default {
             }
           }
         );
-      } else {
-        this.$alert("<div>Banda</div>", "Anak yang akan didaftarkan:", {
-          dangerouslyUseHTMLString: true
-        });
       }
     },
     select(child) {

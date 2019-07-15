@@ -1,0 +1,13 @@
+.forgotPassword {
+    margin: 5% auto;
+    width: 30%;
+
+    &__title {
+        margin-bottom: 10px;
+    }
+
+    &__description,
+    &__inputEmail {
+        margin-bottom: 32px;
+    }
+}

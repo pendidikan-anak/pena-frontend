@@ -26,7 +26,13 @@
 export default {
   name: "pena-big-card",
   components: {},
-  props: ["img", "title", "address", "rate", "countRate"],
+  props: {
+    img: String,
+    title: String,
+    address: String,
+    rate: Number,
+    countRate: Number
+  },
   data() {
     return {};
   },

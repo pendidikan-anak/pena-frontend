@@ -72,7 +72,7 @@ export default {
       this.picture = localStorage.picture;
     }
     if (localStorage.role === "vendor") {
-      this.profile = "vendor";
+      this.profile = "vendorProfile";
     }
   },
   beforeUpdate() {},

@@ -4,7 +4,7 @@
     <div class="home__intro">
       <div class="home__intro__search">
         <div class="home__intro__search__title">
-          <h2 class="xlarge-title color-black title">Selamat Datang di Sahabat Pena</h2>
+          <h2 class="xlarge-title color-black title">Selamat Datang Sahabat Pena</h2>
           <h6
             class="subhead color-black description"
           >Platform pertama yang mempertemukan orang tua dengan sekolah di Indonesia.</h6>
@@ -12,7 +12,7 @@
         <div class="home__intro__search__input">
           <div class="search">
             <i slot="prefix" class="el-input__icon el-icon-search"></i>
-            <input type="text" placeholder="Cari Sekolah atau Bimbel disini..">
+            <input type="text" placeholder="Cari Sekolah atau Bimbel disini.." />
           </div>
         </div>
       </div>
@@ -29,15 +29,17 @@
 
     <div class="home__featured">
       <h1 class="medium-title">Sekolah</h1>
-      <pena-card/>
+      <pena-card />
       <div class="home__featured__footer">
-        <button class="primary btn-regular">Lihat Semua Sekolah</button>
+        <router-link :to="{name: 'vendors'}">
+          <button class="primary btn-regular">Lihat Semua Sekolah</button>
+        </router-link>
       </div>
     </div>
 
     <div class="home__featured">
       <h1 class="medium-title">Bimbel</h1>
-      <pena-card/>
+      <pena-card />
       <div class="home__featured__footer">
         <button class="primary btn-regular">Lihat Semua Sekolah</button>
       </div>

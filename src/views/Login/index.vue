@@ -15,14 +15,18 @@
         </div>
         <div class="login__form__footer">
           <div class="login__form__footer__left">
-            <primary-large-button text="Masuk" @submit="submit"/>
+            <button class="btn-regular primary" @click="login">Masuk</button>
           </div>
           <div class="login__form__footer__right">
             <div class="not-registered">
-              <a href="#" class="base-font">Belum punya Akun?</a>
+              <router-link tag="a" :to="{name: 'userRegistration'}">
+                <span class="color-primary base-font">Belum punya Akun?</span>
+              </router-link>
             </div>
             <div class="forget-password">
-              <a href="#">Lupa Password?</a>
+              <router-link tag="a" :to="{name: 'forgotPassword'}">
+                <span class="color-primary base-font">Lupa Password?</span>
+              </router-link>
             </div>
           </div>
         </div>
@@ -59,12 +63,7 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
-    submit: function(event) {
-      // submit email and password
-      // `event` is the native DOM event
-      if (event) {
-        alert(event.target.tagName);
-      }
+    login: function() {
     }
   }
 };

@@ -60,6 +60,21 @@ export default new Router({
       component: () => import( /* webpackChunkName: "vendor" */ './views/User/Register')
     },
     {
+      path: '/forgot-password',
+      name: 'forgotPassword',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/ForgotPassword')
+    },
+    {
+      path: '/forgot-password-done',
+      name: 'forgotPasswordDone',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/ForgotPassword/Done')
+    },
+    {
+      path: '/reset-password',
+      name: 'resetPassword',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/ResetPassword')
+    },
+    {
       path: '/vendor',
       name: 'vendor',
       component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor'),
@@ -73,6 +88,11 @@ export default new Router({
           path: 'profile',
           name: 'vendorProfile',
           component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/Profile'),
+        },
+        {
+          path: 'editProfile',
+          name: 'editVendorProfile',
+          component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/Vendor/Profile/Edit'),
         },
         {
           path: 'siswaBaru/detail',

@@ -12,6 +12,7 @@
       </ul>
       <ul>
         <li class="header">Lainnya</li>
+        <router-link tag="li" :to="{name: 'editVendorProfile'}" active-class="active">Edit Profil</router-link>
         <router-link tag="li" :to="{name: 'biayaKesiswaan'}" active-class="active">Biaya Kesiswaan</router-link>
       </ul>
     </div>

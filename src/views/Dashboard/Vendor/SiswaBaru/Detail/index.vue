@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="siswabaruDetail__footer">
-      <button class="btn-block primary">Tolak</button>
+      <button class="btn-block primary" @click="inputReason">Tolak</button>
       <button class="btn-block third">Lanjutkan</button>
     </div>
   </div>
@@ -127,7 +127,19 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
-    goto() {}
+    goto() {},
+    inputReason() {
+      this.$prompt("Silakan masukan alasan", "Tolak", {
+        confirmButtonText: "OK",
+        inputPattern: /(.|\s)*\S(.|\s)*/,
+        inputErrorMessage: "Harus menyertakan alasan"
+      }).then(({ value }) => {
+        this.$message({
+          type: "success",
+          message: "Your reason is:" + value
+        });
+      });
+    }
   }
 };
 </script>

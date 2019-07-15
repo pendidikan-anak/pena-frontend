@@ -16,8 +16,8 @@
             img="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
             title="Sekolah Tarsisius 1"
             address="Jl. Batusari Raya No.12, RT.1/RW.9, Kb. Jeruk, Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530"
-            rate="4.0"
-            countRate="300"
+            rate=4.0
+            countRate=300
           />
         </router-link>
       </div>
