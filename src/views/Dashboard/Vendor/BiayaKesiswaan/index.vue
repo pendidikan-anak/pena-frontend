@@ -1,5 +1,14 @@
 <template>
   <div class="biayaKesiswaan">
+    <div class="biayaKesiswaan__formulir">
+      <div class="biayaKesiswaan__formulir__header">
+        <h1 class="xlarge-title">Biaya Formulir</h1>
+      </div>
+      <div class="biayaKesiswaan__formulir__input">
+        <el-input class="fee" v-model="hargaFormulir" placeholder="Biaya (Rupiah)"></el-input>
+        <button class="btn-regular primary" @click="handleFormulir">Simpan</button>
+      </div>
+    </div>
     <div class="biayaKesiswaan__perTahun">
       <div class="biayaKesiswaan__perTahun__header">
         <h1 class="xlarge-title">Biaya Per Tahun</h1>
@@ -17,6 +26,17 @@
           <el-table-column type="index" width="50" label="No"></el-table-column>
           <el-table-column prop="name" label="Nama"></el-table-column>
           <el-table-column prop="fee" label="Nominal"></el-table-column>
+          <el-table-column width="50">
+            <template slot-scope="scope">
+              <a>
+                <i
+                  class="el-icon-delete"
+                  @click="handleDelete(scope.$index, 'tahun')"
+                  slot="reference"
+                ></i>
+              </a>
+            </template>
+          </el-table-column>
         </el-table>
       </div>
     </div>
@@ -41,8 +61,8 @@
             <template slot-scope="scope">
               <a>
                 <i
-                  class="el-icon-edit"
-                  @click="handleEdit(scope.$index, scope.row)"
+                  class="el-icon-delete"
+                  @click="handleDelete(scope.$index)"
                   slot="reference"
                 ></i>
               </a>
@@ -62,6 +82,7 @@ export default {
   data() {
     return {
       visible: false,
+      hargaFormulir: null,
       perTahun: { name: "", fee: null },
       perBulan: { name: "", fee: null },
       biayaPerTahun: [],
@@ -106,6 +127,16 @@ export default {
         this.biayaPerBulan.push(this.perBulan);
         this.perBulan = { name: "", fee: null };
       }
+    },
+    handleDelete(index, flag) {
+      if (flag === "tahun") {
+        this.biayaPerTahun.splice(index, 1);
+      } else {
+        this.biayaPerBulan.splice(index, 1);
+      }
+    },
+    handleFormulir() {
+      // Partial update vendor, set registration_price
     }
   }
 };

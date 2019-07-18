@@ -1,3 +1,5 @@
+@import '~@/styles/variables';
+
 .list {
     width: 100%;
     display: flex;
@@ -14,11 +16,24 @@
         }
 
         &__options {
-            margin-bottom: 31px;
+            margin-bottom: 20px;
             display: flex;
 
             .sort {
                 margin-right: 40px;
+            }
+
+            .sort,
+            .filter {
+                cursor: pointer;
+            }
+        }
+
+        &__showFilter {
+            margin-bottom: 31px;
+
+            span {
+                color: $primary;
             }
         }
 
