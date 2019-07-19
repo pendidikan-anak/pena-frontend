@@ -19,6 +19,14 @@
         <el-radio v-model="user.gender" label="M">Laki - laki</el-radio>
         <el-radio v-model="user.gender" label="F">Perempuan</el-radio>
       </div>
+      <el-select v-model="user.religion" placeholder="Agama">
+        <el-option
+          v-for="religion in religions"
+          :key="religion.id"
+          :label="religion.name"
+          :value="religion.id"
+        ></el-option>
+      </el-select>
       <el-input class="noHp" placeholder="Nomor handphone" v-model="user.noHp"></el-input>
       <el-input type="textarea" :rows="3" placeholder="Alamat" v-model="user.address"></el-input>
       <div class="verifyData__form__select">
@@ -107,18 +115,22 @@ export default {
       formKtp: false,
       formKk: false,
       user: {
-        fullName: "Arya Nandaasd",
+        fullName: "Arya Nanda",
         nik: null,
         birthDate: null,
         noHp: null,
         ktp: null,
         kk: null,
+        gender: null,
         kodePos: {
           id: null,
           name: null
-        }
+        },
+        religion: null,
+        address: null
       },
-      locations: []
+      locations: [],
+      religions: []
     };
   },
   computed: {},
@@ -131,7 +143,7 @@ export default {
     this.defaultDate = date;
   },
   mounted() {
-    this.getUserProfile()
+    this.getUserProfile(), this.getReligion();
   },
   beforeUpdate() {},
   updated() {},
@@ -142,12 +154,20 @@ export default {
   methods: {
     getUserProfile() {
       console.log("MOUNTED");
-      this.axios.get("api/users/profile/", {
-        headers: {
-          'Authentication': `JWT ${this.$store.getters.account.token}`
-        }
-      }).then(response => {
-        console.log(response.data);
+      this.axios
+        .get("api/users/profile/", {
+          headers: {
+            Authentication: `JWT ${this.$store.getters.account.token}`
+          }
+        })
+        .then(response => {
+          this.user = response.data;
+        });
+    },
+    getReligion() {
+      console.log("GET AGAMA");
+      this.axios.get("api/users/religion/").then(response => {
+        this.religions = response.data;
       });
     },
     handleKodePos: function(e) {
@@ -179,7 +199,28 @@ export default {
     cancel() {
       window.history.back();
     },
-    save() {},
+    save() {
+      const data = {
+        user: this.$store.getters.account.user.pk,
+        phone_number: this.user.noHp,
+        gender: this.user.gender,
+        religion: this.user.religion,
+        address: this.user.address,
+        zip_code: this.user.kodePos.id,
+        emergency_contact_relation: this.user.emergencyContactRelation,
+        emergency_contact: this.user.emergencyContact
+      };
+      console.log(data);
+      this.axios
+        .put("api/users/profile/", data, {
+          headers: {
+            Authentication: `JWT ${this.$store.getters.account.token}`
+          }
+        })
+        .then(response => {
+          this.user = response.data;
+        });
+    },
     handleAvatarSuccess(res, file) {
       this.user.ktp = URL.createObjectURL(file.raw);
     },
