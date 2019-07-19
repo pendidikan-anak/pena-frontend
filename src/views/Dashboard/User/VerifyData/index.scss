@@ -2,15 +2,58 @@
     margin: 64px 25% 0;
 
     &__form {
-        width: 50%;
+        width: 70%;
         margin: 40px 0;
 
+        .upload-ktp,
+        .el-upload {
+            border: 1px dashed #d9d9d9;
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-ktp,
+        .el-upload:hover {
+            border-color: #409EFF;
+        }
+
+        .avatar-uploader-icon {
+            font-size: 28px;
+            color: #8c939d;
+            width: 178px;
+            height: 178px;
+            line-height: 178px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 178px;
+            height: 178px;
+            display: block;
+        }
+
         .el-input,
+        .el-textarea,
+        &__gender,
         .wrap {
             margin-bottom: 20px;
 
             .title {
                 margin-bottom: 8px;
+            }
+        }
+
+        &__select {
+
+            .kodePos {
+                width: 20%;
+                margin-right: 2%;
+            }
+
+            .el-select {
+                width: 78%;
             }
         }
     }

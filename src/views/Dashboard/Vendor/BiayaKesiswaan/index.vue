@@ -60,11 +60,7 @@
           <el-table-column width="50">
             <template slot-scope="scope">
               <a>
-                <i
-                  class="el-icon-delete"
-                  @click="handleDelete(scope.$index)"
-                  slot="reference"
-                ></i>
+                <i class="el-icon-delete" @click="handleDelete(scope.$index)" slot="reference"></i>
               </a>
             </template>
           </el-table-column>
@@ -136,7 +132,12 @@ export default {
       }
     },
     handleFormulir() {
-      // Partial update vendor, set registration_price
+      var numeric = new RegExp("^[0-9]*$");
+      if (!numeric.test(this.hargaFormulir)) {
+        this.$message.error("Harga formulir harus angka");
+      } else {
+        // Partial update vendor, set registration_price
+      }
     }
   }
 };
