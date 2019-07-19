@@ -16,23 +16,23 @@
         <router-link :to="{name: 'home'}">
           <el-menu-item class="el-menu-item-custom" index="2">Bimbel</el-menu-item>
         </router-link>
-        <router-link :to="{name: 'login'}" v-if="!name">
+        <router-link :to="{name: 'login'}" v-if="account == ''">
           <el-menu-item class="el-menu-item-custom" index="3">Masuk</el-menu-item>
         </router-link>
-        <router-link :to="{name: 'userRegistration'}" v-if="!name">
+        <router-link :to="{name: 'userRegistration'}" v-if="account == ''">
           <el-menu-item class="el-menu-item-custom" index="4">Daftar</el-menu-item>
         </router-link>
-        <router-link :to="{name: 'becomeAPartner'}" v-if="!name">
+        <router-link :to="{name: 'becomeAPartner'}" v-if="account == ''">
           <el-menu-item class="el-menu-item-custom" index="4">Daftar Kemitraan</el-menu-item>
         </router-link>
-        <router-link :to="{name: profile}" v-if="name">
+        <router-link :to="{name: profile}" v-if="account">
           <el-menu-item class="el-menu-item-custom" index="5">
             <el-image
               class="el-image"
               src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
               fit="fill"
             ></el-image>
-            {{name}}
+            {{account.user.username}}
           </el-menu-item>
         </router-link>
       </el-menu>
@@ -49,7 +49,8 @@ export default {
     return {
       name: "",
       picture: "",
-      profile: "userProfile"
+      profile: "userProfile",
+      account: ''
     };
   },
   computed: {},
@@ -65,15 +66,7 @@ export default {
   created() {},
   beforeMount() {},
   mounted() {
-    if (localStorage.name) {
-      this.name = localStorage.name;
-    }
-    if (localStorage.picture) {
-      this.picture = localStorage.picture;
-    }
-    if (localStorage.role === "vendor") {
-      this.profile = "vendorProfile";
-    }
+    this.checkLogin()
   },
   beforeUpdate() {},
   updated() {},
@@ -81,7 +74,12 @@ export default {
   deactivated() {},
   beforeDestroy() {},
   destroyed() {},
-  methods: {}
+  methods: {
+    checkLogin() {
+      const account = this.$store.getters.account
+      this.account = account
+    }
+  }
 };
 </script>
 
