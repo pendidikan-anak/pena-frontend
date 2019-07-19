@@ -40,6 +40,7 @@ export default {
   },
   beforeMount() {},
   mounted() {
+    this.useToken()
   },
   beforeUpdate() {},
   updated() {},
@@ -47,7 +48,17 @@ export default {
   deactivated() {},
   beforeDestroy() {},
   destroyed() {},
-  methods: {}
+  methods: {
+    useToken() {
+      if (this.$store.getters.account.token) {
+        this.axios.defaults.headers.common['Authorization'] = `JWT ${this.$store.getters.account.token}`;
+        // this.axios.defaults.headers = {
+        //   Authorization: `JWT ${this.$store.getters.account.token}`
+        // }
+      }
+      // this.axios.defaults.headers = this.$store.getters.account.token ? this.$store.getters.account.token : ''
+    }
+  }
 };
 </script>
 

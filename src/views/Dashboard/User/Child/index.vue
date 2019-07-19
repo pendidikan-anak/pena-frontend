@@ -125,10 +125,55 @@ export default {
       window.history.back();
     },
     save() {
-      this.$message({
-        message: "Congrats, this is a success save.",
-        type: "success"
-      });
+      this.axios
+          .post("api/users/child/", {
+            "first_name": this.fullName,
+            "last_name": this.fullName,
+            "birth_date": this.birthDate,
+            "birth_place": this.birthPlace,
+            "gender": this.gender,
+            "religion": 1,
+            "blood_type": this.bloodType,
+            "notes": "notes",
+            "nik": "0"
+          })
+          .then(response => {
+            if (response.status === 201) {
+              return this.$alert(
+                "Komplit Profil",
+                "Terima kasih sudah mendaftar di Pena.",
+                {
+                  confirmButtonText: "OK",
+                  callback: action => {
+                    this.$router.push({ name: "userProfile" });
+                  }
+                }
+              );
+              console.log(response)
+            }else {
+              return this.$alert(
+              "Komplitkan profile dulu",
+                "Terima kasih sudah mendaftar di Pena.",
+                {
+                  confirmButtonText: "OK",
+                  callback: action => {
+                    this.$router.push({ name: "child" });
+                  }
+                }
+              );
+            }
+          })
+          .catch(error => {
+            console.log(error)
+            const fieldError = Object.keys(error.response.message);
+            return this.$alert(
+              error.response.data[fieldError].join(""),
+              Object.keys(error.response.data).join(""),
+              {
+                confirmButtonText: "OK"
+              }
+            );
+          });
     }
   }
 };

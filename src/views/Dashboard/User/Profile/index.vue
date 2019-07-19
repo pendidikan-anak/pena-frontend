@@ -36,7 +36,7 @@
           <div class="have-data" v-else>
             <div v-for="child in user.children" :key="child.id">
               <div class="child base-font">
-                <div class="left">{{child.name}}</div>
+                <div class="left">{{child.first_name}}</div>
                 <div class="right">
                   <i class="el-icon-edit"></i>
                 </div>
@@ -94,13 +94,7 @@ export default {
       activeTab: "1",
       user: {
         name: "",
-        children: [
-          { id: 1, name: "Banda" },
-          { id: 2, name: "Neira" },
-          { id: 3, name: "Neira" },
-          { id: 4, name: "Neira" },
-          { id: 5, name: "Neira" }
-        ],
+        children: [],
         wishlists: [
           { id: 1, name: "Sekolah Dasar Tarsisius 1" },
           { id: 2, name: "Sekolah Dasar Tarsisius 2" },
@@ -129,14 +123,36 @@ export default {
       this.user.name = localStorage.name;
     }
   },
-  mounted() {},
+  mounted() {
+    this.getChild()
+  },
   beforeUpdate() {},
   updated() {},
   activated() {},
   deactivated() {},
   beforeDestroy() {},
   destroyed() {},
-  methods: {}
+  methods: {
+    getChild() {
+      this.axios
+          .get("api/users/child/")
+          .then(response => {
+            if (response.status === 200) {
+              this.user.children = response.data
+            }
+          })
+          .catch(error => {
+            const fieldError = Object.keys(error.response.data);
+            return this.$alert(
+              error.response.data[fieldError].join(""),
+              Object.keys(error.response.data).join(""),
+              {
+                confirmButtonText: "OK"
+              }
+            );
+          });
+    }
+  }
 };
 </script>
 

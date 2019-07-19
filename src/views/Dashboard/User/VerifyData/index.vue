@@ -210,13 +210,8 @@ export default {
         emergency_contact_relation: this.user.emergencyContactRelation,
         emergency_contact: this.user.emergencyContact
       };
-      console.log(data);
       this.axios
-        .put("api/users/profile/", data, {
-          headers: {
-            Authentication: `JWT ${this.$store.getters.account.token}`
-          }
-        })
+        .patch("api/users/profile/", data)
         .then(response => {
           this.user = response.data;
         });
