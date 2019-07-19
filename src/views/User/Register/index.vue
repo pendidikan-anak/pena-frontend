@@ -189,7 +189,7 @@ export default {
       } else {
         e.preventDefault();
         this.axios
-          .post("/api/rest-auth/registration/", {
+          .post("api/rest-auth/registration/", {
             fullname: this.user.fullName,
             email: this.user.email,
             birth_date: this.user.birthDate,

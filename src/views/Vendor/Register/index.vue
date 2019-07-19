@@ -179,40 +179,30 @@ export default {
         );
       } else {
         e.preventDefault();
-        this.$router.push({ name: "registerVendor" });
-        // this.axios
-        //   .post("/api/rest-auth/registration/", {
-        //     fullname: this.user.fullName,
-        //     email: this.user.email,
-        //     birth_date: this.user.birthDate,
-        //     birth_place: this.user.birthPlace,
-        //     password1: this.user.password1,
-        //     password2: this.user.password2
-        //   })
-        //   .then(response => {
-        //     if (response.status === 201) {
-        //       return this.$alert(
-        //         "Kami telah mengirimkan email konfirmasi ke email anda. Silakan buka email anda dan klik link pada email tersebut untuk aktivasi akun dan mengaktifkan fitur kami.",
-        //         "Terima kasih sudah mendaftar di Pena.",
-        //         {
-        //           confirmButtonText: "OK",
-        //           callback: action => {
-        //             this.$router.push({ name: "login" });
-        //           }
-        //         }
-        //       );
-        //     }
-        //   })
-        //   .catch(error => {
-        //     const fieldError = Object.keys(error.response.data);
-        //     return this.$alert(
-        //       error.response.data[fieldError].join(""),
-        //       Object.keys(error.response.data).join(""),
-        //       {
-        //         confirmButtonText: "OK"
-        //       }
-        //     );
-        //   });
+        this.axios
+          .post("/api/rest-auth/registration/", {
+            fullname: this.user.email,
+            email: this.user.email,
+            birth_date: '2019-01-01',
+            birth_place: '',
+            password1: this.user.password1,
+            password2: this.user.password2
+          })
+          .then(response => {
+            if (response.status === 201) {
+              this.$router.push({ name: "registerVendor" });
+            }
+          })
+          .catch(error => {
+            const fieldError = Object.keys(error.response.data);
+            return this.$alert(
+              error.response.data[fieldError].join(""),
+              Object.keys(error.response.data).join(""),
+              {
+                confirmButtonText: "OK"
+              }
+            );
+          });
       }
     }
   }

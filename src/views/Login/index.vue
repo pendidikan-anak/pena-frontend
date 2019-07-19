@@ -64,6 +64,35 @@ export default {
   destroyed() {},
   methods: {
     login: function() {
+      this.axios
+          .post("api/rest-auth/login/", {
+            email: this.email,
+            password: this.password
+          })
+          .then(response => {
+            if (response.status === 200) {
+              return this.$alert(
+                "Kami telah mengirimkan email konfirmasi ke email anda. Silakan buka email anda dan klik link pada email tersebut untuk aktivasi akun dan mengaktifkan fitur kami.",
+                "Terima kasih sudah mendaftar di Pena.",
+                {
+                  confirmButtonText: "OK",
+                  callback: action => {
+                    this.$router.push({ name: "login" });
+                  }
+                }
+              );
+            }
+          })
+          .catch(error => {
+            const fieldError = Object.keys(error.response.data);
+            return this.$alert(
+              error.response.data[fieldError].join(""),
+              Object.keys(error.response.data).join(""),
+              {
+                confirmButtonText: "OK"
+              }
+            );
+          });
     }
   }
 };

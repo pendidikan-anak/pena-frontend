@@ -28,29 +28,27 @@
               @click="openMap"
             >Buka Peta</a>
           </div>
-          <el-select v-model="provinsi" class="register__intro__form__input" placeholder="Provinsi">
-            <el-option label="Provinsi satu" value="shanghai"></el-option>?
+          <el-select v-model="selectedProvinsi" class="register__intro__form__input" placeholder="Provinsi">
+            <el-option v-for="item in provinsi" :key="item.id" :label="item" :value="item">{{item}}</el-option>
           </el-select>
-          <el-select v-model="kota" class="register__intro__form__input" placeholder="Kota">
-            <el-option label="Kota satu" value="shanghai"></el-option>
-            <el-option label="Kota dua" value="beijing"></el-option>
+          <el-select v-model="selectedKota" class="register__intro__form__input" placeholder="Kota">
+            <el-option v-for="item in kota" :label="item" :key="item.id" :value="item">{{item}}</el-option>
           </el-select>
           <el-select
-            v-model="kecamatan"
+            v-model="selectedKecamatan"
             class="register__intro__form__input"
             placeholder="Kecamatan"
           >
-            <el-option label="Kecamatan satu" value="shanghai"></el-option>
-            <el-option label="Kecamatan dua" value="beijing"></el-option>
+            <el-option v-for="item in kecamatan" :label="item" :key="item" :value="item">{{item}}</el-option>
           </el-select>
-          <el-select
+          <!-- <el-select
             v-model="kelurahan"
             class="register__intro__form__input"
             placeholder="Kelurahan"
           >
             <el-option label="Kelurahan satu" value="shanghai"></el-option>
             <el-option label="Kelurahan dua" value="beijing"></el-option>
-          </el-select>
+          </el-select> -->
           <div>
             <el-input
               class="register__intro__form__input__kode_pos"
@@ -126,8 +124,11 @@ export default {
       npsn: "",
       alamat: "",
       provinsi: "",
+      selectedProvinsi: "",
       kota: "",
+      selectedKota: "",
       kecamatan: "",
+      selectedKecamatan: "",
       kelurahan: "",
       kodepos: "",
       namaSekolah: "",
@@ -136,15 +137,31 @@ export default {
       nomorTelepon: "",
       websiteSekolah: "",
       jenjangPendidikan: "",
-      active: 1
+      active: 1,
+      location: ""
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    selectedProvinsi(val) {
+      const data = this.location.filter(y => {return y.province == val})
+      console.log(data)
+      const city = this.uniqByKeepFirst(data, it => it.city).map(x => { return x.city })
+      this.kota = city
+    },
+    selectedKota(val) {
+      const data = this.location.filter(y => {return y.city == val})
+      console.log(data)
+      const district = this.uniqByKeepFirst(data, it => it.district_name).map(x => { return x.district_name })
+      this.kecamatan = district
+    }
+  },
   beforeCreate() {},
   created() {},
   beforeMount() {},
-  mounted() {},
+  mounted() {
+    this.getLocation()
+  },
   beforeUpdate() {},
   updated() {},
   activated() {},
@@ -152,6 +169,39 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
+    uniqByKeepFirst(a, key) {
+      let seen = new Set();
+      return a.filter(item => {
+          let k = key(item);
+          return seen.has(k) ? false : seen.add(k);
+      });
+    },
+    getLocation(){
+      this.axios
+      .get("/api/location/")
+      .then(response => {
+        if (response.status === 200) {
+          const { data } = response
+
+          this.location = data
+
+          const province = this.uniqByKeepFirst(data, it => it.province).map(x => { return x.province })
+
+          this.provinsi = province
+
+        }
+      })
+      .catch(error => {
+        const fieldError = Object.keys(error.response.data);
+        return this.$alert(
+          error.response.data[fieldError].join(""),
+          Object.keys(error.response.data).join(""),
+          {
+            confirmButtonText: "OK"
+          }
+        );
+      });
+    },
     next() {
       if (this.active++ > 2) this.active = 0;
     },
@@ -163,7 +213,54 @@ export default {
       }
     },
     submit() {
-      alert("Registrasi Sukses!");
+      // const data = {
+      //   "npsn": this.npsn,
+      //   "school_name": this.namaSekolah,
+      //   "address": this.alamat,
+      //   "zip_code": this.zip_code,
+      //   "foundation": this.foundation,
+      //   "accreditation": ,
+      //   "education_level": this.jenjangPendidikan,
+      //   "website": this.websiteSekolah,
+      //   "headmaster": this.namaKepalaSekolah
+      // }
+
+      const data = {
+        "user": 2,
+        "school_name": this.namaSekolah,
+        "npsn": this.npsn,
+        "foundation": "",
+        "accreditation": "",
+        "education_level": this.jenjangPendidikan,
+        "website": this.websiteSekolah,
+        "headmaster": this.namaKepalaSekolah,
+        "school_description": "",
+        "school_achievements": "",
+        "school_facilities": "",
+        "zip_code": this.zip_code,
+        "is_free": true,
+        "registration_price": 0
+      }
+
+      this.axios
+          .post("/api/vendors/", data)
+          .then(response => {
+            if (response.status === 201) {
+              this.$router.push({ name: "home" });
+            }
+          })
+          .catch(error => {
+            const fieldError = Object.keys(error.response.data);
+            return this.$alert(
+              error.response.data[fieldError].join(""),
+              Object.keys(error.response.data).join(""),
+              {
+                confirmButtonText: "OK"
+              }
+            );
+          });
+
+
     },
     cekNpsn() {
       alert("Cek NPSN");
