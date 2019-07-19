@@ -73,46 +73,7 @@
           </div>
         </el-tab-pane>
         <el-tab-pane label="Daftar Registrasi" name="3">
-          <div class="do-not-have-data" v-if="user.transactions.length == 0">
-            <span>
-              <p class="base-font">Anda belum mendaftarkan anak anda ke sekolah manapun.</p>
-            </span>
-            <span>
-              <p class="base-font">Silahkan cari sekolah yang tepat untuk anak anda.</p>
-            </span>
-            <el-button size="mini">
-              <span class="small-font">Cari Sekolah</span>
-            </el-button>
-          </div>
-          <div
-            class="transaction"
-            v-for="transaction in user.transactions"
-            :key="transaction.id"
-            v-else
-          >
-            <div class="transaction__header">
-              <h1 class="base-font">Menunggu Pembayaran Formulir</h1>
-            </div>
-            <div class="transaction__content">
-              <div class="transaction__content__left">{{transaction.childName}}</div>
-              <div class="transaction__content__center">
-                <i class="el-icon-d-arrow-right"></i>
-              </div>
-              <div class="transaction__content__right">{{transaction.schoolName}}</div>
-            </div>
-            <div class="transaction__footer">
-              <div class="transaction__footer__left">
-                <p>Biaya formulir</p>
-                <h1 class="medium-title">Rp 120.000</h1>
-              </div>
-              <div class="transaction__footer__center">
-                <el-button class="el-button-reverse" size="small">Batalkan Pendaftaran</el-button>
-              </div>
-              <div class="transaction__footer__right">
-                <el-button class="el-button" size="small">Lanjut ke Pembayaran</el-button>
-              </div>
-            </div>
-          </div>
+          <pena-daftarRegistrasi :registrations=user.registrations />
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -120,9 +81,13 @@
 </template>
 
 <script>
+import DaftarRegistrasi from "@/views/Dashboard/User/Profile/DaftarRegistrasi"
+
 export default {
   name: "pena-userProfile",
-  components: {},
+  components: {
+    "pena-daftarRegistrasi": DaftarRegistrasi,
+  },
   props: {},
   data() {
     return {
@@ -143,12 +108,13 @@ export default {
           { id: 4, name: "Sekolah Dasar Tarsisius 4" },
           { id: 5, name: "Sekolah Dasar Tarsisius 5" }
         ],
-        transactions: [
+        registrations: [
           {
             childName: "Banda",
             schoolName: "SD Tarsi",
             form: 120000,
-            status: "WAITING_PAYMENT"
+            paymentStatus: "wfp",
+            registrationStatus: "wfis"
           }
         ]
       }

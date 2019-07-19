@@ -35,33 +35,39 @@ export default new Vuex.Store({
     logout(state) {
       state.account = ''
     },
-    [types.GET_ACCOUNT] (state, response) {
+    [types.GET_ACCOUNT](state, response) {
       state.account = response.data
     },
-    [types.REMOVE_ACCOUNT] (state, response) {
+    [types.REMOVE_ACCOUNT](state, response) {
       state.account = ''
     },
   },
   actions: {
-    async login ({ commit }, payload) {
+    async login({ commit }, payload) {
       const response = axios
-      .post("api/rest-auth/login/", payload)
-      .then(response => {
-        console.log(response)
-        commit(types.GET_ACCOUNT, response)
-      })
-      .catch(error => {
-        const fieldError = Object.keys(error.response.data);
-        return this.$alert(
-          error.response.data[fieldError].join(""),
-          Object.keys(error.response.data).join(""),
-          {
-            confirmButtonText: "OK"
-          }
-        );
-      });
+        .post("api/rest-auth/login/", payload)
+        .then(response => {
+          axios.get(`/api/users/profile/${response.data.user.pk}`, {
+            headers: {
+              'Authentication': `JWT ${response.data.token}`
+            }
+          }).then(response => {
+            console.log(response);
+          });
+          commit(types.GET_ACCOUNT, response)
+        })
+        .catch(error => {
+          const fieldError = Object.keys(error.response.data);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
+            }
+          );
+        });
     },
-    async logout ({ commit }, payload) {
+    async logout({ commit }, payload) {
       commit(types.REMOVE_ACCOUNT)
     },
 
