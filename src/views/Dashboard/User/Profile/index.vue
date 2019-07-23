@@ -22,58 +22,13 @@
     <div class="user-profile__content">
       <el-tabs v-model="activeTab">
         <el-tab-pane label="Anak" name="1">
-          <div class="do-not-have-data" v-if="user.children.length == 0">
-            <span>
-              <p class="base-font">Anda belum menambahkan anak.</p>
-            </span>
-            <span>
-              <p class="base-font">Silahkan tambahkan anak.</p>
-            </span>
-            <el-button size="mini">
-              <span class="small-font">Tambah Anak</span>
-            </el-button>
-          </div>
-          <div class="have-data" v-else>
-            <div v-for="child in user.children" :key="child.id">
-              <div class="child base-font">
-                <div class="left">{{child.first_name}}</div>
-                <div class="right">
-                  <i class="el-icon-edit"></i>
-                </div>
-              </div>
-            </div>
-            <router-link :to="{name: 'child'}">
-              <el-button size="mini">
-                <span class="small-font">Tambah Anak</span>
-              </el-button>
-            </router-link>
-          </div>
+          <pena-user-children :children="user.children" />
         </el-tab-pane>
         <el-tab-pane label="Wishlist" name="2">
-          <div class="do-not-have-data" v-if="user.wishlists.length == 0">
-            <span>
-              <p class="base-font">Anda belum menambahkan wishlist.</p>
-            </span>
-            <span>
-              <p class="base-font">Silahkan tambahkan wishlist.</p>
-            </span>
-            <el-button size="mini">
-              <span class="small-font">Tambah Anak</span>
-            </el-button>
-          </div>
-          <div class="have-data" v-else>
-            <div v-for="wishlist in user.wishlists" :key="wishlist.id">
-              <div class="child base-font">
-                <div class="left">{{wishlist.name}}</div>
-                <div class="right">
-                  <i class="el-icon-delete"></i>
-                </div>
-              </div>
-            </div>
-          </div>
+          <pena-user-wishlist :wishlists="user.wishlists" />
         </el-tab-pane>
         <el-tab-pane label="Daftar Registrasi" name="3">
-          <pena-daftarRegistrasi :registrations=user.registrations />
+          <pena-user-registrations :registrations="user.registrations" />
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -81,12 +36,16 @@
 </template>
 
 <script>
-import DaftarRegistrasi from "@/views/Dashboard/User/Profile/DaftarRegistrasi"
+import Registrations from "@/views/Dashboard/User/Profile/Registrations";
+import Wishlist from "@/views/Dashboard/User/Profile/Wishlist";
+import Children from "@/views/Dashboard/User/Profile/Children";
 
 export default {
   name: "pena-userProfile",
   components: {
-    "pena-daftarRegistrasi": DaftarRegistrasi,
+    "pena-user-registrations": Registrations,
+    "pena-user-wishlist": Wishlist,
+    "pena-user-children": Children
   },
   props: {},
   data() {
@@ -96,11 +55,11 @@ export default {
         name: "",
         children: [],
         wishlists: [
-          { id: 1, name: "Sekolah Dasar Tarsisius 1" },
-          { id: 2, name: "Sekolah Dasar Tarsisius 2" },
-          { id: 3, name: "Sekolah Dasar Tarsisius 3" },
-          { id: 4, name: "Sekolah Dasar Tarsisius 4" },
-          { id: 5, name: "Sekolah Dasar Tarsisius 5" }
+          { id: 1, vendor: { school_name: "Sekolah Dasar Tarsisius 1" } },
+          { id: 2, vendor: { school_name: "Sekolah Dasar Tarsisius 2" } },
+          { id: 3, vendor: { school_name: "Sekolah Dasar Tarsisius 3" } },
+          { id: 4, vendor: { school_name: "Sekolah Dasar Tarsisius 4" } },
+          { id: 5, vendor: { school_name: "Sekolah Dasar Tarsisius 5" } }
         ],
         registrations: [
           {
@@ -124,7 +83,8 @@ export default {
     }
   },
   mounted() {
-    this.getChild()
+    this.getChildren();
+    this.getWishlist();
   },
   beforeUpdate() {},
   updated() {},
@@ -133,24 +93,62 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
-    getChild() {
+    getChildren() {
       this.axios
-          .get("api/users/child/")
-          .then(response => {
-            if (response.status === 200) {
-              this.user.children = response.data
+        .get("api/users/child/")
+        .then(response => {
+          if (response.status === 200) {
+            this.user.children = response.data;
+          }
+        })
+        .catch(error => {
+          const fieldError = Object.keys(error.response.data);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
             }
-          })
-          .catch(error => {
-            const fieldError = Object.keys(error.response.data);
-            return this.$alert(
-              error.response.data[fieldError].join(""),
-              Object.keys(error.response.data).join(""),
-              {
-                confirmButtonText: "OK"
-              }
-            );
-          });
+          );
+        });
+    },
+    getWishlist() {
+      this.axios
+        .get("api/users/wishlist/")
+        .then(response => {
+          if (response.status === 200) {
+            this.user.wishlists = response.data;
+          }
+        })
+        .catch(error => {
+          const fieldError = Object.keys(error.response.data);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
+            }
+          );
+        });
+    },
+    getRegistrations() {
+      this.axios
+        .get("api/registrations/")
+        .then(response => {
+          if (response.status === 200) {
+            // this.user.children = response.data;
+          }
+        })
+        .catch(error => {
+          const fieldError = Object.keys(error.response.data);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
+            }
+          );
+        });
     }
   }
 };

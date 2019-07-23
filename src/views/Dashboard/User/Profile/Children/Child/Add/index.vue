@@ -5,7 +5,11 @@
     </div>
     <div class="child__form">
       <div class="child__form__left">
-        <el-input class="fullName" placeholder="Nama lengkap" v-model="child.fullName"></el-input>
+        <el-input class="nik" placeholder="NIK" v-model="child.nik"></el-input>
+        <div class="fullName">
+          <el-input class="firstName" placeholder="Nama Depan" v-model="child.firstName"></el-input>
+          <el-input class="lastName" placeholder="Nama Belakang" v-model="child.lastName"></el-input>
+        </div>
         <el-date-picker
           class="birthDate"
           v-model="child.birthDate"
@@ -16,6 +20,14 @@
           :default-value="defaultDate"
         ></el-date-picker>
         <el-input class="birthPlace" placeholder="Tempat lahir" v-model="child.birthPlace"></el-input>
+        <el-select v-model="child.religion" placeholder="Agama">
+          <el-option
+            v-for="religion in religions"
+            :key="religion.id"
+            :label="religion.name"
+            :value="religion.id"
+          ></el-option>
+        </el-select>
         <div class="wrap">
           <div class="title">
             <p class="small-font">Jenis Kelamin</p>
@@ -27,6 +39,7 @@
         </div>
         <el-input class="parentName" placeholder="Nama orang tua" v-model="child.parents"></el-input>
         <el-input class="bloodType" placeholder="Golongan darah" v-model="child.bloodType"></el-input>
+        <el-input type="textarea" :rows="3" placeholder="Catatan" v-model="child.notes"></el-input>
       </div>
       <div class="child__form__right">
         <div class="wrap">
@@ -90,13 +103,18 @@ export default {
   data() {
     return {
       defaultDate: null,
+      religions: [],
       child: {
+        nik: null,
         parents: null,
-        fullName: null,
+        firstName: null,
+        lastName: null,
+        religion: null,
         birthDate: null,
         birthPlace: null,
         gender: null,
         bloodType: null,
+        notes: null,
         kk: null,
         akta: null,
         ktpAyah: null,
@@ -113,7 +131,9 @@ export default {
     date.setFullYear(date.getFullYear() - 15);
     this.defaultDate = date;
   },
-  mounted() {},
+  mounted() {
+    this.getReligion();
+  },
   beforeUpdate() {},
   updated() {},
   activated() {},
@@ -121,59 +141,59 @@ export default {
   beforeDestroy() {},
   destroyed() {},
   methods: {
+    getReligion() {
+      this.axios.get("api/users/religion/").then(response => {
+        this.religions = response.data;
+      });
+    },
     cancel() {
       window.history.back();
     },
     save() {
       this.axios
-          .post("api/users/child/", {
-            "first_name": this.fullName,
-            "last_name": this.fullName,
-            "birth_date": this.birthDate,
-            "birth_place": this.birthPlace,
-            "gender": this.gender,
-            "religion": 1,
-            "blood_type": this.bloodType,
-            "notes": "notes",
-            "nik": "0"
-          })
-          .then(response => {
-            if (response.status === 201) {
-              return this.$alert(
-                "Komplit Profil",
-                "Terima kasih sudah mendaftar di Pena.",
-                {
-                  confirmButtonText: "OK",
-                  callback: action => {
-                    this.$router.push({ name: "userProfile" });
-                  }
-                }
-              );
-              console.log(response)
-            }else {
-              return this.$alert(
-              "Komplitkan profile dulu",
-                "Terima kasih sudah mendaftar di Pena.",
-                {
-                  confirmButtonText: "OK",
-                  callback: action => {
-                    this.$router.push({ name: "child" });
-                  }
-                }
-              );
-            }
-          })
-          .catch(error => {
-            console.log(error)
-            const fieldError = Object.keys(error.response.message);
+        .post("api/users/child/", {
+          first_name: this.child.firstName,
+          last_name: this.child.lastName,
+          birth_date: this.child.birthDate,
+          birth_place: this.child.birthPlace,
+          gender: this.child.gender,
+          religion: this.child.religion,
+          blood_type: this.child.bloodType,
+          notes: this.child.notes,
+          nik: this.child.nik
+        })
+        .then(response => {
+          if (response.status === 201) {
+            return this.$alert("Sukses", "Anak anda telah terdaftar di Pena.", {
+              confirmButtonText: "OK",
+              callback: action => {
+                this.$router.push({ name: "userProfile" });
+              }
+            });
+          } else {
             return this.$alert(
-              error.response.data[fieldError].join(""),
-              Object.keys(error.response.data).join(""),
+              "Gagal",
+              "Lengkapi data pribadi terlebih dahulu.",
               {
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
+                callback: action => {
+                  this.$router.push({ name: "child" });
+                }
               }
             );
-          });
+          }
+        })
+        .catch(error => {
+          console.log(error);
+          const fieldError = Object.keys(error.response.message);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
+            }
+          );
+        });
     }
   }
 };

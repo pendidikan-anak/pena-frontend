@@ -13,14 +13,14 @@
             placeholder="Nomor Pokok Sekolah Nasional"
             v-model="npsn"
           ></el-input>
-          <a class="register__intro__form__right small-font" @click="cekNpsn">Cek NPSN</a>
+          <a class="register__intro__form__right small-font" @click="checkNpsn">Cek NPSN</a>
           <div>
             <el-input
               class="register__intro__form__input"
               type="textarea"
               :rows="4"
               placeholder="Alamat"
-              v-model="alamat"
+              v-model="address"
             ></el-input>
             <a
               class="register__intro__form__right small-font"
@@ -28,65 +28,95 @@
               @click="openMap"
             >Buka Peta</a>
           </div>
-          <el-select v-model="selectedProvinsi" class="register__intro__form__input" placeholder="Provinsi">
-            <el-option v-for="item in provinsi" :key="item.id" :label="item" :value="item">{{item}}</el-option>
-          </el-select>
-          <el-select v-model="selectedKota" class="register__intro__form__input" placeholder="Kota">
-            <el-option v-for="item in kota" :label="item" :key="item.id" :value="item">{{item}}</el-option>
-          </el-select>
           <el-select
+            v-model="selectedProvince"
+            class="register__intro__form__input"
+            placeholder="Provinsi"
+          >
+            <el-option
+              v-for="province in provinces"
+              :key="province.id"
+              :label="province"
+              :value="province"
+            >{{province}}</el-option>
+          </el-select>
+          <el-select v-model="selectedCity" class="register__intro__form__input" placeholder="Kota">
+            <el-option v-for="city in cities" :label="city" :key="city.id" :value="city">{{city}}</el-option>
+          </el-select>
+          <!-- <el-select
             v-model="selectedKecamatan"
             class="register__intro__form__input"
             placeholder="Kecamatan"
           >
             <el-option v-for="item in kecamatan" :label="item" :key="item" :value="item">{{item}}</el-option>
-          </el-select>
-          <!-- <el-select
-            v-model="kelurahan"
+          </el-select>-->
+          <el-select
+            v-model="selectedDistrict"
             class="register__intro__form__input"
             placeholder="Kelurahan"
           >
-            <el-option label="Kelurahan satu" value="shanghai"></el-option>
-            <el-option label="Kelurahan dua" value="beijing"></el-option>
-          </el-select> -->
-          <div>
+            <el-option
+              v-for="district in districts"
+              :label="district"
+              :key="district"
+              :value="district"
+            >{{district}}</el-option>
+          </el-select>
+          <el-select
+            v-model="selectedZipCode"
+            class="register__intro__form__input"
+            placeholder="Kode Pos"
+          >
+            <el-option
+              v-for="zipCode in zipCodes"
+              :key="zipCode.id"
+              :label="zipCode.name"
+              :value="zipCode.id"
+            >{{zipCode.name}}</el-option>
+          </el-select>
+          <!-- <div>
             <el-input
               class="register__intro__form__input__kode_pos"
               placeholder="Kode Pos"
-              v-model="kodepos"
+              v-model="zipCode"
             ></el-input>
-          </div>
+          </div>-->
         </div>
         <div class v-if="active === 2">
           <el-input
             class="register__intro__form__input"
             placeholder="Nama Sekolah"
-            v-model="namaSekolah"
+            v-model="schoolName"
           ></el-input>
           <el-input
             class="register__intro__form__input"
             placeholder="Nama Yayasan"
-            v-model="namaYayasan"
+            v-model="foundation"
           ></el-input>
           <el-input
             class="register__intro__form__input"
             placeholder="Nama Kepala Sekolah"
-            v-model="namaKepalaSekolah"
+            v-model="headmaster"
           ></el-input>
           <el-input
             class="register__intro__form__input"
             placeholder="Nomor Telepon"
-            v-model="nomorTelepon"
+            v-model="schoolNumber"
           ></el-input>
           <el-input
             class="register__intro__form__input"
             placeholder="Website Sekolah"
-            v-model="websiteSekolah"
+            v-model="website"
           ></el-input>
           <el-input
             class="register__intro__form__input"
             placeholder="Jenjang Pendidikan"
-            v-model="jenjangPendidikan"
+            v-model="educationLevel"
+          ></el-input>
+          <el-input
+            class="register__intro__form__input"
+            placeholder="Akreditasi"
+            v-model="accreditation"
           ></el-input>
         </div>
       </div>
@@ -118,49 +148,69 @@
 export default {
   name: "pena-vendor-register",
   components: {},
-  props: {},
+  props: {
+    vendor: Object
+  },
   data() {
     return {
       npsn: "",
-      alamat: "",
-      provinsi: "",
-      selectedProvinsi: "",
-      kota: "",
-      selectedKota: "",
-      kecamatan: "",
-      selectedKecamatan: "",
-      kelurahan: "",
-      kodepos: "",
-      namaSekolah: "",
-      namaYayasan: "",
-      namaKepalaSekolah: "",
-      nomorTelepon: "",
-      websiteSekolah: "",
-      jenjangPendidikan: "",
+      address: "",
+      provinces: [],
+      selectedProvince: "",
+      cities: [],
+      selectedCity: "",
+      districts: [],
+      selectedDistrict: "",
+      zipCodes: [],
+      selectedZipCode: "",
+      schoolName: "",
+      foundation: "",
+      headmaster: "",
+      schoolNumber: "",
+      website: "",
+      educationLevel: "",
+      accreditation: "",
       active: 1,
       location: ""
     };
   },
   computed: {},
   watch: {
-    selectedProvinsi(val) {
-      const data = this.location.filter(y => {return y.province == val})
-      console.log(data)
-      const city = this.uniqByKeepFirst(data, it => it.city).map(x => { return x.city })
-      this.kota = city
+    selectedProvince(val) {
+      const data = this.location.filter(y => {
+        return y.province == val;
+      });
+      const city = this.uniqByKeepFirst(data, it => it.city).map(x => {
+        return x.city;
+      });
+      this.cities = city;
     },
-    selectedKota(val) {
-      const data = this.location.filter(y => {return y.city == val})
-      console.log(data)
-      const district = this.uniqByKeepFirst(data, it => it.district_name).map(x => { return x.district_name })
-      this.kecamatan = district
+    selectedCity(val) {
+      const data = this.location.filter(y => {
+        return y.city == val;
+      });
+      const district = this.uniqByKeepFirst(data, it => it.district_name).map(
+        x => {
+          return x.district_name;
+        }
+      );
+      this.districts = district;
+    },
+    selectedDistrict(val) {
+      const data = this.location.filter(y => {
+        return y.district_name == val;
+      });
+      const zipCode = this.uniqByKeepFirst(data, it => it.name).map(x => {
+        return x;
+      });
+      this.zipCodes = zipCode;
     }
   },
   beforeCreate() {},
   created() {},
   beforeMount() {},
   mounted() {
-    this.getLocation()
+    this.getLocation();
   },
   beforeUpdate() {},
   updated() {},
@@ -172,35 +222,38 @@ export default {
     uniqByKeepFirst(a, key) {
       let seen = new Set();
       return a.filter(item => {
-          let k = key(item);
-          return seen.has(k) ? false : seen.add(k);
+        let k = key(item);
+        return seen.has(k) ? false : seen.add(k);
       });
     },
-    getLocation(){
+    getLocation() {
       this.axios
-      .get("/api/location/")
-      .then(response => {
-        if (response.status === 200) {
-          const { data } = response
+        .get("/api/location/")
+        .then(response => {
+          if (response.status === 200) {
+            const { data } = response;
 
-          this.location = data
+            this.location = data;
 
-          const province = this.uniqByKeepFirst(data, it => it.province).map(x => { return x.province })
+            const province = this.uniqByKeepFirst(data, it => it.province).map(
+              x => {
+                return x.province;
+              }
+            );
 
-          this.provinsi = province
-
-        }
-      })
-      .catch(error => {
-        const fieldError = Object.keys(error.response.data);
-        return this.$alert(
-          error.response.data[fieldError].join(""),
-          Object.keys(error.response.data).join(""),
-          {
-            confirmButtonText: "OK"
+            this.provinces = province;
           }
-        );
-      });
+        })
+        .catch(error => {
+          const fieldError = Object.keys(error.response.data);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
+            }
+          );
+        });
     },
     next() {
       if (this.active++ > 2) this.active = 0;
@@ -213,57 +266,71 @@ export default {
       }
     },
     submit() {
-      // const data = {
-      //   "npsn": this.npsn,
-      //   "school_name": this.namaSekolah,
-      //   "address": this.alamat,
-      //   "zip_code": this.zip_code,
-      //   "foundation": this.foundation,
-      //   "accreditation": ,
-      //   "education_level": this.jenjangPendidikan,
-      //   "website": this.websiteSekolah,
-      //   "headmaster": this.namaKepalaSekolah
-      // }
-
       const data = {
-        "user": 2,
-        "school_name": this.namaSekolah,
-        "npsn": this.npsn,
-        "foundation": "",
-        "accreditation": "",
-        "education_level": this.jenjangPendidikan,
-        "website": this.websiteSekolah,
-        "headmaster": this.namaKepalaSekolah,
-        "school_description": "",
-        "school_achievements": "",
-        "school_facilities": "",
-        "zip_code": this.zip_code,
-        "is_free": true,
-        "registration_price": 0
-      }
+        fullname: this.schoolName,
+        email: this.vendor.email,
+        birth_date: "1991-01-01",
+        password1: this.vendor.password1,
+        password2: this.vendor.password2,
+        school_name: this.schoolName,
+        npsn: this.npsn,
+        foundation: this.foundation,
+        accreditation: this.accreditation,
+        education_level: this.educationLevel,
+        website: this.website,
+        headmaster: this.headmaster,
+        school_description: "",
+        school_achievements: "",
+        school_facilities: "",
+        zip_code: this.selectedZipCode
+      };
 
       this.axios
-          .post("/api/vendors/", data)
-          .then(response => {
-            if (response.status === 201) {
-              this.$router.push({ name: "home" });
-            }
-          })
-          .catch(error => {
-            const fieldError = Object.keys(error.response.data);
+        .post("/api/vendors/", data)
+        .then(response => {
+          if (response.status === 201) {
             return this.$alert(
-              error.response.data[fieldError].join(""),
-              Object.keys(error.response.data).join(""),
+              "Kami telah mengirimkan email konfirmasi ke email anda. Silakan buka email anda dan klik link pada email tersebut untuk aktivasi akun dan mengaktifkan fitur kami.",
+              "Terima kasih sudah mendaftar kemitraan di Pena.",
               {
-                confirmButtonText: "OK"
+                confirmButtonText: "OK",
+                callback: action => {
+                  this.$router.push({ name: "login" });
+                }
               }
             );
-          });
-
-
+          }
+        })
+        .catch(error => {
+          const fieldError = Object.keys(error.response.data);
+          return this.$alert(
+            error.response.data[fieldError].join(""),
+            Object.keys(error.response.data).join(""),
+            {
+              confirmButtonText: "OK"
+            }
+          );
+        });
     },
-    cekNpsn() {
-      alert("Cek NPSN");
+    checkNpsn() {
+      this.axios.get(`/api/master-data/school/${this.npsn}/`).then(response => {
+        if (response.status === 200) {
+          const school = response.data;
+
+          this.accreditation = school.accreditation;
+          this.address = school.address;
+          this.educationLevel = school.education_level;
+          this.foundation = school.foundation;
+          this.headmaster = school.headmaster;
+          this.schoolName = school.school_name;
+          this.website = school.website;
+          this.zipCode = school.zip_code.name;
+          this.selectedProvince = school.zip_code.province;
+          this.selectedCity = school.zip_code.city;
+          this.selectedDistrict = school.zip_code.district_name;
+          this.selectedZipCode = school.zip_code.id;
+        }
+      });
     },
     openMap() {
       alert("Buka Peta");

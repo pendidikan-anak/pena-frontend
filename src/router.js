@@ -16,7 +16,8 @@ export default new Router({
     },{
       path: '/register-vendor',
       name: 'registerVendor',
-      component: () => import(/* webpackChunkName: "about" */ './views/Vendor/Register/Detail')
+      component: () => import(/* webpackChunkName: "about" */ './views/Vendor/Register/Detail'),
+      props: true
     },
     {
       path: '/login',
@@ -50,9 +51,9 @@ export default new Router({
       component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/User/VerifyData'),
     },
     {
-      path: '/child',
-      name: 'child',
-      component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/User/Child'),
+      path: '/add-child',
+      name: 'addChild',
+      component: () => import( /* webpackChunkName: "vendor" */ './views/Dashboard/User/Profile/Children/Child/Add'),
     },
     {
       path: '/sign-up',

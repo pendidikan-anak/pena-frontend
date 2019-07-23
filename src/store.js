@@ -47,13 +47,13 @@ export default new Vuex.Store({
       const response = axios
         .post("api/rest-auth/login/", payload)
         .then(response => {
-          axios.get(`/api/users/profile/${response.data.user.pk}`, {
-            headers: {
-              'Authentication': `JWT ${response.data.token}`
-            }
-          }).then(response => {
-            console.log(response);
-          });
+          // axios.get(`/api/users/profile/${response.data.user.pk}`, {
+          //   headers: {
+          //     'Authentication': `JWT ${response.data.token}`
+          //   }
+          // }).then(response => {
+          //   console.log(response);
+          // });
           commit(types.GET_ACCOUNT, response)
         })
         .catch(error => {

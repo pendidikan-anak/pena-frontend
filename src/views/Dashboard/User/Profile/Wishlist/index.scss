@@ -1,0 +1,46 @@
+@import '~@/styles/variables';
+@import '~@/styles/typography';
+
+.wishlist {
+
+    &__noData {
+        margin-top: 25px;
+        box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+        background-color: #ffffff;
+        padding-top: 32px;
+        height: 166px;
+
+        p {
+            text-align: center;
+        }
+
+        .el-button {
+            background-color: $primary;
+            border-color: $primary;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 24px;
+
+            span {
+                color: white;
+            }
+        }
+    }
+
+    &__haveData {
+
+        .child {
+            display: flex;
+            margin-bottom: 15px;
+
+            .left {
+                width: 90%;
+            }
+
+            .right {
+                width: 10%;
+                text-align: right;
+            }
+        }
+    }
+}

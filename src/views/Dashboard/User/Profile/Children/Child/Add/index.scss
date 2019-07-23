@@ -16,8 +16,21 @@
         &__right {
             width: 50%;
 
+            .fullName {
+                width: 90%;
+                display: flex;
+                justify-content: space-between;
+
+                .firstName,
+                .lastName {
+                    width: 49%;
+                }
+            }
+
 
             .el-input,
+            .el-select,
+            .el-textarea,
             .wrap {
 
                 p {

@@ -43,62 +43,62 @@
             padding: 4px;
         }
 
-        .have-data {
-            margin-top: 25px;
-            box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
-            background-color: #ffffff;
-            padding: 24px;
-            min-height: 166px;
+        // .have-data {
+        //     margin-top: 25px;
+        //     box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+        //     background-color: #ffffff;
+        //     padding: 24px;
+        //     min-height: 166px;
 
-            .child {
-                display: flex;
-                margin-bottom: 15px;
+        //     .child {
+        //         display: flex;
+        //         margin-bottom: 15px;
 
-                .left {
-                    width: 90%;
-                }
+        //         .left {
+        //             width: 90%;
+        //         }
 
-                .right {
-                    width: 10%;
-                    text-align: right;
-                }
-            }
+        //         .right {
+        //             width: 10%;
+        //             text-align: right;
+        //         }
+        //     }
 
-            .el-button {
-                background-color: $primary;
-                border-color: $primary;
-                margin: 0 0 0 auto;
-                margin-top: 24px;
-                display: flex;
+        //     .el-button {
+        //         background-color: $primary;
+        //         border-color: $primary;
+        //         margin: 0 0 0 auto;
+        //         margin-top: 24px;
+        //         display: flex;
 
-                span {
-                    color: white;
-                }
-            }
-        }
+        //         span {
+        //             color: white;
+        //         }
+        //     }
+        // }
 
-        .do-not-have-data {
-            margin-top: 25px;
-            box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
-            background-color: #ffffff;
-            padding-top: 32px;
-            height: 166px;
+        // .do-not-have-data {
+        //     margin-top: 25px;
+        //     box-shadow: 0 0 4px rgba(190, 190, 190, 0.5);
+        //     background-color: #ffffff;
+        //     padding-top: 32px;
+        //     height: 166px;
 
-            p {
-                text-align: center;
-            }
+        //     p {
+        //         text-align: center;
+        //     }
 
-            .el-button {
-                background-color: $primary;
-                border-color: $primary;
-                display: flex;
-                margin: 0 auto;
-                margin-top: 24px;
+        //     .el-button {
+        //         background-color: $primary;
+        //         border-color: $primary;
+        //         display: flex;
+        //         margin: 0 auto;
+        //         margin-top: 24px;
 
-                span {
-                    color: white;
-                }
-            }
-        }
+        //         span {
+        //             color: white;
+        //         }
+        //     }
+        // }
     }
 }

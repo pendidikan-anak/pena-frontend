@@ -165,7 +165,6 @@ export default {
         });
     },
     getReligion() {
-      console.log("GET AGAMA");
       this.axios.get("api/users/religion/").then(response => {
         this.religions = response.data;
       });

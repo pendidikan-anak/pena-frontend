@@ -2,7 +2,7 @@
   <div class="user-register">
     <el-row>
       <el-col class="left" :span="12">
-          <img src="/img/background/background.png">
+        <img src="/img/background/background.png" />
       </el-col>
       <el-col class="right" :span="12">
         <div class="title">
@@ -31,12 +31,12 @@
             <el-input placeholder="Masukan tempat lahir" v-model="user.birthPlace"></el-input>
           </div>-->
           <div class="email">
-            <el-input placeholder="Masukan email" v-model="user.email"></el-input>
+            <el-input placeholder="Masukan email" v-model="vendor.email"></el-input>
           </div>
           <div class="password">
             <el-input
               placeholder="Masukan password"
-              v-model="user.password1"
+              v-model="vendor.password1"
               v-on:input="inputPassword1"
               show-password
             ></el-input>
@@ -44,7 +44,7 @@
           <div class="conf-password">
             <el-input
               placeholder="Masukan konfirmasi password"
-              v-model="user.password2"
+              v-model="vendor.password2"
               v-on:input="inputPassword2"
               show-password
             ></el-input>
@@ -113,7 +113,7 @@ export default {
   props: {},
   data() {
     return {
-      user: {
+      vendor: {
         email: "",
         password1: "",
         password2: "",
@@ -152,24 +152,24 @@ export default {
       this.validatePassword.numericSpecial = numericSpecial.test(value);
       this.validatePassword.length = length.test(value);
       this.validatePassword.match =
-        this.user.password2 == this.user.password1 ? true : false;
+        this.vendor.password2 == this.vendor.password1 ? true : false;
     },
     inputPassword2: function(value) {
       this.validatePassword.match =
-        this.user.password2 == this.user.password1 ? true : false;
+        this.vendor.password2 == this.vendor.password1 ? true : false;
     },
     submit(e) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       const valid = Object.keys(this.validatePassword).filter(v => {
         return this.validatePassword[v] === true;
       }).length;
-      if (this.user.email.trim() === "") {
+      if (this.vendor.email.trim() === "") {
         this.$message.error("Email harus diisi");
-      } else if (!re.test(this.user.email)) {
+      } else if (!re.test(this.vendor.email)) {
         this.$message.error("Format email anda salah");
-      } else if (this.user.password1.trim() === "") {
+      } else if (this.vendor.password1.trim() === "") {
         this.$message.error("Password harus diisi");
-      } else if (this.user.password2.trim() === "") {
+      } else if (this.vendor.password2.trim() === "") {
         this.$message.error("Konfirmasi password harus diisi");
       } else if (valid < 5) {
         this.$message.error("Password tidak memenuhi syarat");
@@ -179,30 +179,34 @@ export default {
         );
       } else {
         e.preventDefault();
-        this.axios
-          .post("/api/rest-auth/registration/", {
-            fullname: this.user.email,
-            email: this.user.email,
-            birth_date: '2019-01-01',
-            birth_place: '',
-            password1: this.user.password1,
-            password2: this.user.password2
-          })
-          .then(response => {
-            if (response.status === 201) {
-              this.$router.push({ name: "registerVendor" });
-            }
-          })
-          .catch(error => {
-            const fieldError = Object.keys(error.response.data);
-            return this.$alert(
-              error.response.data[fieldError].join(""),
-              Object.keys(error.response.data).join(""),
-              {
-                confirmButtonText: "OK"
-              }
-            );
-          });
+        this.$router.push({
+          name: "registerVendor",
+          params: { vendor: this.vendor }
+        });
+        // this.axios
+        //   .post("/api/rest-auth/registration/", {
+        //     fullname: this.vendor.email,
+        //     email: this.vendor.email,
+        //     birth_date: '2019-01-01',
+        //     birth_place: '',
+        //     password1: this.vendor.password1,
+        //     password2: this.vendor.password2
+        //   })
+        //   .then(response => {
+        //     if (response.status === 201) {
+        //       this.$router.push({ name: "registerVendor" });
+        //     }
+        //   })
+        //   .catch(error => {
+        //     const fieldError = Object.keys(error.response.data);
+        //     return this.$alert(
+        //       error.response.data[fieldError].join(""),
+        //       Object.keys(error.response.data).join(""),
+        //       {
+        //         confirmButtonText: "OK"
+        //       }
+        //     );
+        //   });
       }
     }
   }
